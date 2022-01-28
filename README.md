@@ -26,3 +26,15 @@ Web APP for Studying Korean, English Words
 ### APIs
 
 ### 개발 스택 (Used Stack)
+
+### 개발 일지
+
+##### 22.01.27
+
+- 프로젝트 시작
+- DB 설계
+- 와이어프레임 작성 시작
+
+##### 22.01.28
+
+- 와이어프레임 작성
