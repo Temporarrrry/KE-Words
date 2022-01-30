@@ -21,6 +21,10 @@ Web APP for Studying Korean, English Words
   - 한국어 풀이에 맞는 영단어 주관식
   - 영어 풀이에 맞는 한국어 단어 주관식
 
+### 와어어프레임 (WireFrame)
+
+https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
+
 ### 데어터베이스 (DataBase)
 
 ### APIs
@@ -36,5 +40,9 @@ Web APP for Studying Korean, English Words
 - 와이어프레임 작성 시작
 
 ##### 22.01.28
+
+- 와이어프레임 작성
+
+##### 22.01.30
 
 - 와이어프레임 작성
