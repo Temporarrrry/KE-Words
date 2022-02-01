@@ -31,6 +31,16 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 
 ### 개발 스택 (Used Stack)
 
+### 개발 계획
+
+- 프로젝트 기본 구상
+- 와이어프레임 작성
+- 필요한 백엔드 API 설계
+- DB 설계
+- 백엔드 개발
+- 프런트엔드 개발
+- 배포
+
 ### 개발 일지
 
 ##### 22.01.27
