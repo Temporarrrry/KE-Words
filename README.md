@@ -56,3 +56,7 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 ##### 22.01.30
 
 - 와이어프레임 작성
+
+##### 22.02.04
+
+- 백엔드 개발 시작(장고)
