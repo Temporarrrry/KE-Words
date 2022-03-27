@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 
 class User(AbstractBaseUser):
-  id = models.AutoField("고유번호")
-  email = models.CharField("이메일", max_length=255, unique=True)
+  id = models.AutoField("고유번호", primary_key=True)
+  email = models.CharField("이메일", max_length=255, unique=True, default="")
   is_admin = models.BooleanField("관리자", default=False)
 
   def __str__(self):
