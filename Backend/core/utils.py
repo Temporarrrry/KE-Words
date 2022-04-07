@@ -10,3 +10,13 @@ def loginDecorator(func):
     return func(self, request, *args, **kwargs)
 
   return wrapper
+
+
+def adminDecorator(func):
+  def wrapper(self, request, *args, **kwargs):
+    user = request.user
+    if (user.is_admin == False):
+      return Response({"Access Denied"})
+    return func(self, request, *args, **kwargs)
+
+  return wrapper
