@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -108,10 +108,10 @@ video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
-  font-family: 'Cafe24Ssurround';
+  font-family: 'CookieRun-Regular';
 }
 input, textarea {
-  font-family: "Cafe24Ssurround"
+  font-family: "CookieRun-Regular"
 }
 /* HTML5 display-role reset for older browsers */
 article,
