@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 @font-face {
-    font-family: 'CookieRun-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -108,10 +108,10 @@ video {
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
-  font-family: 'CookieRun-Regular';
+  font-family: 'BMJUA';
 }
 input, textarea {
-  font-family: "CookieRun-Regular"
+  font-family: "BMJUA"
 }
 /* HTML5 display-role reset for older browsers */
 article,

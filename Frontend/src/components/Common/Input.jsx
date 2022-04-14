@@ -2,9 +2,8 @@ import { palette } from "lib/styles/palette";
 import React from "react";
 import styled from "styled-components";
 
-function Input({ size = true, placeholder, type = "text" }) {
-	const style = size ? { width: "600px" } : { width: "400px" };
-	return <StyledInput style={style} placeholder={placeholder} type={type} />;
+function Input({ placeholder, type = "text" }) {
+	return <StyledInput placeholder={placeholder} type={type} />;
 }
 
 const StyledInput = styled.input`
@@ -23,6 +22,10 @@ const StyledInput = styled.input`
 
 	::placeholder {
 		color: ${palette.Primary};
+	}
+
+	@media screen and (max-width: 750px) {
+		width: 400px;
 	}
 `;
 

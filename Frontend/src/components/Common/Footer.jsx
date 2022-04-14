@@ -14,7 +14,7 @@ function Footer() {
 			<br />
 			Privacy Policy
 			<br />
-			<br />이 페이지에는 데브시스터즈(주)이 제공한 "쿠키런 Regular"가 적용되어
+			<br />이 페이지에는 우아한형제들에서 제공한 배달의민족 폰트가 적용되어
 			있습니다.
 		</StyledFooter>
 	);
@@ -22,10 +22,10 @@ function Footer() {
 
 const StyledFooter = styled.div`
 	font-size: 12px;
-	width: 750px;
 	height: 75px;
 	text-align: left;
 	position: absolute;
+	left: 10px;
 	bottom: 0px;
 	color: ${palette.gray};
 `;

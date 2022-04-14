@@ -2,8 +2,8 @@ import { palette } from "lib/styles/palette";
 import React from "react";
 import styled from "styled-components";
 
-function PageTitle({ children }) {
-	return <StyledTitle>{children}</StyledTitle>;
+function PageTitle({ color = true, children }) {
+	return <StyledTitle color={color}>{children}</StyledTitle>;
 }
 
 const StyledTitle = styled.div`
@@ -12,7 +12,7 @@ const StyledTitle = styled.div`
 	line-height: 100px;
 	text-align: center;
 	vertical-align: middle;
-	color: ${palette.Secondary};
+	color: ${(props) => (props.color ? palette.Secondary : palette.Primary)};
 	font-size: 35px;
 	margin-top: 50px;
 `;

@@ -7,10 +7,13 @@ function PageLayout({ children }) {
 
 const Layout = styled.div`
 	margin: 0 auto;
-	width: 750px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@media screen and (max-width: 750px) {
+		width: 750px;
+	}
 `;
 
 export default PageLayout;
