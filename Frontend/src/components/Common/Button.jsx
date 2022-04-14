@@ -2,8 +2,8 @@ import { palette } from "lib/styles/palette";
 import React from "react";
 import styled from "styled-components";
 
-function Button({ children }) {
-	return <StyledButton>{children}</StyledButton>;
+function Button({ action, children }) {
+	return <StyledButton onClick={action}>{children}</StyledButton>;
 }
 
 const StyledButton = styled.button`

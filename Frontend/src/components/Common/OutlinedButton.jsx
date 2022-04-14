@@ -1,10 +1,11 @@
 import { palette } from "lib/styles/palette";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function OutlinedButton({ width, height, color = true, children }) {
+function OutlinedButton({ width, height, color = true, action, children }) {
 	return (
-		<StyledButton width={width} height={height} color={color}>
+		<StyledButton width={width} height={height} color={color} onClick={action}>
 			{children}
 		</StyledButton>
 	);

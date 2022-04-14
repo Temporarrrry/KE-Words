@@ -1,20 +1,41 @@
-import Button from "components/Common/Button";
-import Footer from "components/Common/Footer";
-import Input from "components/Common/Input";
-import PageLayout from "components/Common/PageLayout";
-import PageTitle from "components/Common/PageTitle";
-import React from "react";
+import Button from "components/common/Button";
+import Footer from "components/common/Footer";
+import Input from "components/common/Input";
+import PageLayout from "components/common/PageLayout";
+import PageTitle from "components/common/PageTitle";
+import React, { useState } from "react";
+import useInputStore from "stores/inputStore";
 import styled from "styled-components";
 
 function RegisterPage() {
+	const { id, setId } = useInputStore();
+	const [pw, setPw] = useState("");
+	const [pwConfirm, setPwConfirm] = useState("");
+
+	const submit = () => {
+		console.log(id);
+		console.log(pw);
+		console.log(pwConfirm);
+	};
+
 	return (
 		<PageLayout>
 			<PageTitle>회원가입'^'</PageTitle>
 			<AlignBox>
-				<Input placeholder="ID" />
-				<Input placeholder="PW" type="password" />
-				<Input placeholder="PW 확인" type="password" />
-				<Button>가입하기</Button>
+				<Input placeholder="ID" value={id} onChange={(e) => setId(e)} />
+				<Input
+					placeholder="PW"
+					type="password"
+					value={pw}
+					onChange={(e) => setPw(e.target.value)}
+				/>
+				<Input
+					placeholder="PW 확인"
+					type="password"
+					value={pwConfirm}
+					onChange={(e) => setPwConfirm(e.target.value)}
+				/>
+				<Button action={submit}>가입하기</Button>
 			</AlignBox>
 			<Footer />
 		</PageLayout>

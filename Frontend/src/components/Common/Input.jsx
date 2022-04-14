@@ -2,8 +2,15 @@ import { palette } from "lib/styles/palette";
 import React from "react";
 import styled from "styled-components";
 
-function Input({ placeholder, type = "text" }) {
-	return <StyledInput placeholder={placeholder} type={type} />;
+function Input({ placeholder, type = "text", value, onChange }) {
+	return (
+		<StyledInput
+			placeholder={placeholder}
+			type={type}
+			value={value}
+			onChange={onChange}
+		/>
+	);
 }
 
 const StyledInput = styled.input`
