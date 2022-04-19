@@ -1,5 +1,4 @@
 import Button from "components/common/Button";
-import Footer from "components/common/Footer";
 import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
 import PageTitle from "components/common/PageTitle";
@@ -29,7 +28,6 @@ function LoginPage() {
 				/>
 				<Button action={submit}>로그인</Button>
 			</AlignBox>
-			<Footer />
 		</PageLayout>
 	);
 }

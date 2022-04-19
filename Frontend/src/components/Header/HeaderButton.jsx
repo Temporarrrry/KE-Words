@@ -12,7 +12,7 @@ function HeaderButton({ text, route }) {
 }
 
 const Button = styled.div`
-	width: 150px;
+	width: 120px;
 	height: 50px;
 	line-height: 50px;
 	font-size: 30px;

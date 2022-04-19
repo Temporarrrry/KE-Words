@@ -15,6 +15,10 @@ const StyledTitle = styled.div`
 	color: ${(props) => (props.color ? palette.Secondary : palette.Primary)};
 	font-size: 35px;
 	margin-top: 50px;
+
+	@media screen and (max-width: 750px) {
+		width: 100%;
+	}
 `;
 
 export default PageTitle;

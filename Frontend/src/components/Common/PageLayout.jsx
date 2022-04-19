@@ -12,7 +12,7 @@ const Layout = styled.div`
 	align-items: center;
 
 	@media screen and (max-width: 750px) {
-		width: 750px;
+		width: 100%;
 	}
 `;
 

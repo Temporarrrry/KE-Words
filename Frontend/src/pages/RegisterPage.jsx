@@ -1,5 +1,4 @@
 import Button from "components/common/Button";
-import Footer from "components/common/Footer";
 import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
 import PageTitle from "components/common/PageTitle";
@@ -37,7 +36,6 @@ function RegisterPage() {
 				/>
 				<Button action={submit}>가입하기</Button>
 			</AlignBox>
-			<Footer />
 		</PageLayout>
 	);
 }

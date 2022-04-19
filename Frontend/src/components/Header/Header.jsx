@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import useUserStore from "stores/userStore";
 import styled from "styled-components";
 import HeaderButton from "./HeaderButton";
@@ -14,7 +15,12 @@ function Header() {
 
 	return (
 		<Wrapper>
-			<img src="./assets/logo.png" />
+			<Link to="/">
+				<img
+					src="https://github.com/L-Hyun/KE-Words/blob/main/assets/logo_small.png?raw=true"
+					alt="Logo"
+				/>
+			</Link>
 			<Wrapper>
 				{menu.map((e, i) => {
 					return (
