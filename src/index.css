@@ -150,6 +150,13 @@ section {
 
 body {
   line-height: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  width: 100vw;
+  height: calc(100vh - 50px);
 }
 
 ol,
@@ -174,6 +181,10 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+input, textarea, button {
+  box-sizing: border-box;
 }
 
 input[type=search]::-webkit-search-cancel-button,
@@ -358,6 +369,10 @@ input {
 button,
 select {
   text-transform: none;
+}
+
+button, input, select {
+  font-family: 'TheJamsil5Bold';
 }
 
 /**

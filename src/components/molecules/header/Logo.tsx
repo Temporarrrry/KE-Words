@@ -1,11 +1,14 @@
-import Img from '../../atoms/imgs/Img'
+import { Link } from "react-router-dom";
+import Img from "../../atoms/imgs/Img";
 
-type Props = {}
+type Props = {};
 
 const Logo = (props: Props) => {
-  return (
-    <Img src="../../../assets/logo.png" />
-  )
-}
+	return (
+		<Link to="/">
+			<Img src="../../../assets/logo.png" />
+		</Link>
+	);
+};
 
-export default Logo
+export default Logo;

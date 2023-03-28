@@ -47,3 +47,9 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 
 - Restart
 - init
+
+##### 23.03.28
+
+- 기본 스타일 정리
+- 헤더 작성
+- 로그인 페이지 퍼블리싱

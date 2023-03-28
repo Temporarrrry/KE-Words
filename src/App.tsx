@@ -5,8 +5,8 @@ import RootRouter from "./components/routers/RootRouter";
 function App() {
 	return (
 		<BrowserRouter>
+			<Header />
 			<main>
-				<Header />
 				<RootRouter />
 			</main>
 		</BrowserRouter>

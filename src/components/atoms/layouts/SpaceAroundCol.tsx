@@ -5,18 +5,19 @@ type Props = {
 	gap: string;
 };
 
-const SpaceAround = (props: Props) => {
+const SpaceAroundCol = (props: Props) => {
 	return <Div style={{ gap: props.gap }}>{props.children}</Div>;
 };
 
-SpaceAround.defaultProps = {
+SpaceAroundCol.defaultProps = {
 	gap: "0px",
 };
 
 const Div = styled.div`
 	display: flex;
+	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 `;
 
-export default SpaceAround;
+export default SpaceAroundCol;
