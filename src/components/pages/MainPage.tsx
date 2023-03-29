@@ -1,11 +1,9 @@
-import React from 'react'
+import MainPanel from "../molecules/main/MainPanel";
 
-type Props = {}
+type Props = {};
 
 const MainPage = (props: Props) => {
-  return (
-    <div>MainPage</div>
-  )
-}
+	return <MainPanel />;
+};
 
-export default MainPage
+export default MainPage;
