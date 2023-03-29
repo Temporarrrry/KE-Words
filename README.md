@@ -53,3 +53,7 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 - 기본 스타일 정리
 - 헤더 작성
 - 로그인 페이지 퍼블리싱
+
+##### 23.03.29
+
+- 메인 페이지 퍼블리싱
