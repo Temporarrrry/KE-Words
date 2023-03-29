@@ -43,6 +43,7 @@ BlueBorderedInput.defaultProps = {
 const Input = styled.input`
 	border: 1px solid ${Colors.blue};
 	padding-left: 10px;
+	border-radius: 10px;
 `;
 
 export default BlueBorderedInput;
