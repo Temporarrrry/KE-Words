@@ -125,7 +125,6 @@ h1 {
 }
 
 button {
-  border-radius: 10px;
   border: none;
 }
 
@@ -157,6 +156,8 @@ body {
 main {
   width: 100vw;
   height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
 }
 
 ol,
@@ -365,6 +366,10 @@ input {
 * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
 * Correct `select` style inheritance in Firefox 4+ and Opera.
 */
+
+button {
+  background-color: transparent;
+}
 
 button,
 select {
