@@ -25,6 +25,7 @@ const BlueBorderedInput = (props: Props) => {
 				lineHeight: props.height,
 				fontSize: props.fontSize,
 			}}
+			placeholder={props.placeholder}
 			type={props.type}
 			value={props.value}
 			onChange={onChange}

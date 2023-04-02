@@ -57,3 +57,7 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 ##### 23.03.29
 
 - 메인 페이지 퍼블리싱
+
+##### 23.04.02
+
+- 회원가입 페이지 퍼블리싱
