@@ -31,6 +31,11 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 
 ### 개발 스택 (Used Stack)
 
+- React
+- Typescript
+- Storybook
+- Vite
+
 ### 개발 계획
 
 - 프로젝트 기본 구상
@@ -61,3 +66,7 @@ https://www.figma.com/file/NzZZlpWP4BlfH117EJ48vR/KE-Words
 ##### 23.04.02
 
 - 회원가입 페이지 퍼블리싱
+
+##### 23.04.06
+
+- 스토리북 적용
