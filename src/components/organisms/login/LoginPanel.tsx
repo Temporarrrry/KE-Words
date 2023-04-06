@@ -1,42 +1,60 @@
 import { useState } from "react";
 import styled from "styled-components";
-import BlueBgButton from "../../atoms/buttons/BlueBgButton";
-import BlueBorderedInput from "../../atoms/inputs/BlueBorderedInput";
 import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
-import PinkText from "../../atoms/texts/PinkText";
+import APIs from "../../../lib/APIs";
+import { useNavigate } from "react-router-dom";
+import Button from "../../atoms/Button";
+import Input from "../../atoms/Input";
+import Text from "../../atoms/Text";
 
 type Props = {};
 
 const LoginPanel = (props: Props) => {
+	const navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [pw, setPw] = useState("");
 
 	const login: () => void = () => {
+		// APIs.login(email, pw).then((res) => {
+		// 	console.log(res);
+		// 	if (res.status === 200) {
+		// 		navigate("/");
+		// 	}
+		// });
 		console.log(email, pw);
 	};
 
 	return (
 		<Article>
 			<Section>
-				<PinkText>로그인'^'</PinkText>
-				<SpaceAroundCol gap="30px">
-					<BlueBorderedInput
-						value={email}
-						setValue={setEmail}
-						placeholder="Email"
-						width="600px"
-					/>
-					<BlueBorderedInput
-						type="password"
-						value={pw}
-						setValue={setPw}
-						placeholder="PW"
-						width="600px"
-					/>
-					<BlueBgButton width="600px" onClick={login}>
-						로그인
-					</BlueBgButton>
-				</SpaceAroundCol>
+				<Text color="pink" fontSize="large">
+					로그인'^'
+				</Text>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+					}}
+				>
+					<SpaceAroundCol gap="30px">
+						<Input
+							type="email"
+							value={email}
+							setValue={setEmail}
+							placeholder="Email"
+							width="600px"
+						/>
+						<Input
+							type="password"
+							value={pw}
+							setValue={setPw}
+							placeholder="PW"
+							width="600px"
+						/>
+						<Button width="600px" onClick={login}>
+							로그인
+						</Button>
+					</SpaceAroundCol>
+				</form>
 			</Section>
 		</Article>
 	);

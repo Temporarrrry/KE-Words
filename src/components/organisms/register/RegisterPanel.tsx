@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import PinkText from "../../atoms/texts/PinkText";
 import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
-import BlueBorderedInput from "../../atoms/inputs/BlueBorderedInput";
-import BlueBgButton from "../../atoms/buttons/BlueBgButton";
+import APIs from "../../../lib/APIs";
+import Button from "../../atoms/Button";
+import Input from "../../atoms/Input";
+import Text from "../../atoms/Text";
 
 type Props = {};
 
@@ -13,37 +14,47 @@ function RegisterPanel({}: Props) {
 	const [pwConfrim, setPwConfrim] = useState("");
 
 	const register: () => void = () => {
-		console.log(email, pw);
+		if (pw !== pwConfrim) {
+			alert("비밀번호가 맞지 않아요...");
+			setPw("");
+			setPwConfrim("");
+		}
+		APIs.register(email, pw).then((res) => {
+			console.log(res);
+		});
 	};
 
 	return (
 		<Article>
 			<Section>
-				<PinkText>회원가입'^'</PinkText>
+				<Text color="pink" fontSize="large">
+					회원가입'^'
+				</Text>
 				<SpaceAroundCol gap="30px">
-					<BlueBorderedInput
+					<Input
+						type="email"
 						value={email}
 						setValue={setEmail}
 						placeholder="Email"
 						width="600px"
 					/>
-					<BlueBorderedInput
+					<Input
 						type="password"
 						value={pw}
 						setValue={setPw}
 						placeholder="PW"
 						width="600px"
 					/>
-					<BlueBorderedInput
+					<Input
 						type="password"
 						value={pwConfrim}
 						setValue={setPwConfrim}
-						placeholder="PW 확인"
+						placeholder="PW"
 						width="600px"
 					/>
-					<BlueBgButton width="600px" onClick={register}>
-						회원가입
-					</BlueBgButton>
+					<Button width="600px" onClick={register}>
+						로그인
+					</Button>
 				</SpaceAroundCol>
 			</Section>
 		</Article>

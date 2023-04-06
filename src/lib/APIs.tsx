@@ -23,12 +23,30 @@ const instance = axios.create({
 
 export default {
 	login: async (email: string, pw: string) => {
+		let form = new FormData();
+		form.append("userEmail", email);
+		form.append("password", pw);
+
 		const response = await instance
-			.post("/login", {
+			.post("/member/login", form)
+			.then((res) => {
+				return res;
+			})
+			.catch((e) => {
+				console.log(e);
+				return e.response;
+			});
+		return response;
+	},
+	register: async (email: string, pw: string) => {
+		const response = await instance
+			.post("/member/register", {
 				userEmail: email,
 				password: pw,
 			})
-			.then((res) => {})
+			.then((res) => {
+				return res;
+			})
 			.catch((e) => {
 				console.log(e);
 				return e.response;

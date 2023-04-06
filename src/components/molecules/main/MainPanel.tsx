@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import BlueBorderedButton from "../../atoms/buttons/BlueBorderedButton";
 import BluePinkTitle from "./BluePinkTitle";
+import Button from "../../atoms/Button";
 
 type Props = {};
 
@@ -16,7 +16,8 @@ const MainPanel = (props: Props) => {
 				gap="30px"
 			/>
 			<Section>
-				<BlueBorderedButton
+				<Button
+					buttonType="border"
 					width="40%"
 					height="30%"
 					fontSize="40px"
@@ -25,8 +26,9 @@ const MainPanel = (props: Props) => {
 					}}
 				>
 					한국어 단어 공부하기
-				</BlueBorderedButton>
-				<BlueBorderedButton
+				</Button>
+				<Button
+					buttonType="border"
 					width="40%"
 					height="30%"
 					fontSize="40px"
@@ -35,8 +37,9 @@ const MainPanel = (props: Props) => {
 					}}
 				>
 					영어 단어 공부하기
-				</BlueBorderedButton>
-				<BlueBorderedButton
+				</Button>
+				<Button
+					buttonType="border"
 					width="40%"
 					height="30%"
 					fontSize="40px"
@@ -45,8 +48,9 @@ const MainPanel = (props: Props) => {
 					}}
 				>
 					한국어 단어 시험보기
-				</BlueBorderedButton>
-				<BlueBorderedButton
+				</Button>
+				<Button
+					buttonType="border"
 					width="40%"
 					height="30%"
 					fontSize="40px"
@@ -55,7 +59,7 @@ const MainPanel = (props: Props) => {
 					}}
 				>
 					영어 단어 시험보기
-				</BlueBorderedButton>
+				</Button>
 			</Section>
 		</Article>
 	);

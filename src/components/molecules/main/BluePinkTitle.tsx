@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import BlueText from "../../atoms/texts/BlueText";
-import PinkText from "../../atoms/texts/PinkText";
+import Text from "../../atoms/Text";
 
 type Props = {
 	title: string;
@@ -11,8 +10,10 @@ type Props = {
 const MainTitle = (props: Props) => {
 	return (
 		<Div style={{ gap: props.gap }}>
-			<BlueText fontSize="40px">{props.title}</BlueText>
-			<PinkText fontSize="40px">'{props.subTitle}'</PinkText>
+			<Text fontSize="title">{props.title}</Text>
+			<Text color="pink" fontSize="title">
+				{props.subTitle}
+			</Text>
 		</Div>
 	);
 };

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SpaceAround from "../../atoms/layouts/SpaceAround";
-import PinkText from "../../atoms/texts/PinkText";
+import Text from "../../atoms/Text";
 
 type Props = {};
 
@@ -8,10 +8,14 @@ const HeaderInfo = (props: Props) => {
 	return (
 		<SpaceAround gap="30px">
 			<Link to="/login">
-				<PinkText>로그인</PinkText>
+				<Text color="pink" fontSize="large">
+					로그인
+				</Text>
 			</Link>
 			<Link to="/register">
-				<PinkText>회원가입</PinkText>
+				<Text color="pink" fontSize="large">
+					회원가입
+				</Text>
 			</Link>
 		</SpaceAround>
 	);
