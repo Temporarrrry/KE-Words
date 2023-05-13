@@ -17,30 +17,14 @@ const parseJwt = (token: string) => {
 };
 
 const instance = axios.create({
-	baseURL: "http://43.201.192.197:8080/",
+	baseURL: "http://43.201.192.197:8080",
 	timeout: 3000,
 });
 
 export default {
 	login: async (email: string, pw: string) => {
-		let form = new FormData();
-		form.append("userEmail", email);
-		form.append("password", pw);
-
 		const response = await instance
-			.post("/member/login", form)
-			.then((res) => {
-				return res;
-			})
-			.catch((e) => {
-				console.log(e);
-				return e.response;
-			});
-		return response;
-	},
-	register: async (email: string, pw: string) => {
-		const response = await instance
-			.post("/member/register", {
+			.post("/api/member/login", {
 				userEmail: email,
 				password: pw,
 			})
@@ -48,9 +32,29 @@ export default {
 				return res;
 			})
 			.catch((e) => {
-				console.log(e);
+				console.log("login error", e.response);
 				return e.response;
 			});
 		return response;
+	},
+	register: async (email: string, pw: string) => {
+		const response = await instance
+			.post("/api/member/register", {
+				userEmail: email,
+				password: pw,
+			})
+			.then((res) => {
+				return res;
+			})
+			.catch((e) => {
+				console.log("register error", e.response);
+				return e.response;
+			});
+		return response;
+	},
+	dev: async () => {
+		const response = await instance.get("/temp/register").then((res) => {
+			console.log("temp", res);
+		});
 	},
 };
