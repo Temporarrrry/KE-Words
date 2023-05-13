@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
-import APIs from "../../../lib/APIs";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 import Text from "../../atoms/Text";
+import { useNavigate } from "react-router-dom";
+import Hooks from "../../../lib/Hooks";
+import UserStore from "../../../stores/UserStore";
 
 type Props = {};
 
 function RegisterPanel({}: Props) {
-	const [email, setEmail] = useState("");
+	const { setIsLoggedIn, setEmail, setId, setAccessToken, setRefreshToken } =
+		UserStore();
+	const navigate = useNavigate();
+	const [inputEmail, setInputEmail] = useState("");
 	const [pw, setPw] = useState("");
 	const [pwConfrim, setPwConfrim] = useState("");
 
@@ -19,8 +24,15 @@ function RegisterPanel({}: Props) {
 			setPw("");
 			setPwConfrim("");
 		}
-		APIs.register(email, pw).then((res) => {
-			console.log(res);
+		Hooks.register(inputEmail, pw).then((res) => {
+			if (res.status === 201) {
+				setIsLoggedIn(true);
+				setEmail(inputEmail);
+				setId(res.data.id);
+				setAccessToken(res.data.accessToken);
+				setRefreshToken(res.data.refreshTokne);
+				navigate("/");
+			}
 		});
 	};
 
@@ -30,32 +42,38 @@ function RegisterPanel({}: Props) {
 				<Text color="pink" fontSize="large">
 					회원가입'^'
 				</Text>
-				<SpaceAroundCol gap="30px">
-					<Input
-						type="email"
-						value={email}
-						setValue={setEmail}
-						placeholder="Email"
-						width="600px"
-					/>
-					<Input
-						type="password"
-						value={pw}
-						setValue={setPw}
-						placeholder="PW"
-						width="600px"
-					/>
-					<Input
-						type="password"
-						value={pwConfrim}
-						setValue={setPwConfrim}
-						placeholder="PW"
-						width="600px"
-					/>
-					<Button width="600px" onClick={register}>
-						로그인
-					</Button>
-				</SpaceAroundCol>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+					}}
+				>
+					<SpaceAroundCol gap="30px">
+						<Input
+							type="email"
+							value={inputEmail}
+							setValue={setInputEmail}
+							placeholder="Email"
+							width="600px"
+						/>
+						<Input
+							type="password"
+							value={pw}
+							setValue={setPw}
+							placeholder="PW"
+							width="600px"
+						/>
+						<Input
+							type="password"
+							value={pwConfrim}
+							setValue={setPwConfrim}
+							placeholder="PW"
+							width="600px"
+						/>
+						<Button width="600px" onClick={register}>
+							로그인
+						</Button>
+					</SpaceAroundCol>
+				</form>
 			</Section>
 		</Article>
 	);

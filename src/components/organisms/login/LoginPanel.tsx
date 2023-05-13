@@ -1,27 +1,34 @@
 import { useState } from "react";
 import styled from "styled-components";
 import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
-import APIs from "../../../lib/APIs";
 import { useNavigate } from "react-router-dom";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 import Text from "../../atoms/Text";
+import Hooks from "../../../lib/Hooks";
+import UserStore from "../../../stores/UserStore";
 
 type Props = {};
 
 const LoginPanel = (props: Props) => {
+	const { setIsLoggedIn, setEmail, setId, setAccessToken, setRefreshToken } =
+		UserStore();
 	const navigate = useNavigate();
-	const [email, setEmail] = useState("");
+	const [inputEmail, setInputEmail] = useState("");
 	const [pw, setPw] = useState("");
 
 	const login: () => void = () => {
-		// APIs.login(email, pw).then((res) => {
-		// 	console.log(res);
-		// 	if (res.status === 200) {
-		// 		navigate("/");
-		// 	}
-		// });
-		console.log(email, pw);
+		Hooks.login(inputEmail, pw).then((res) => {
+			console.log("login", res);
+			if (res.status === 200) {
+				setIsLoggedIn(true);
+				setEmail(inputEmail);
+				setId(res.data.id);
+				setAccessToken(res.data.accessToken);
+				setRefreshToken(res.data.refreshTokne);
+				navigate("/");
+			}
+		});
 	};
 
 	return (
@@ -38,8 +45,8 @@ const LoginPanel = (props: Props) => {
 					<SpaceAroundCol gap="30px">
 						<Input
 							type="email"
-							value={email}
-							setValue={setEmail}
+							value={inputEmail}
+							setValue={setInputEmail}
 							placeholder="Email"
 							width="600px"
 						/>
