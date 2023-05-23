@@ -25,23 +25,23 @@ const HeaderInfo = (props: Props) => {
 
 	return (
 		<SpaceAround gap="30px">
-			<Link to={isLoggedIn ? "/login" : `/info`}>
+			<Link to={isLoggedIn ? "/info" : "/login"}>
 				<Text color="pink" fontSize="large">
-					{isLoggedIn ? "로그인" : "내 정보"}
+					{isLoggedIn ? "내 정보" : "로그인"}
 				</Text>
 			</Link>
 			{isLoggedIn ? (
-				<Link to="/register">
-					<Text color="pink" fontSize="large">
-						회원가입
-					</Text>
-				</Link>
-			) : (
 				<button onClick={logout}>
 					<Text color="pink" fontSize="large">
 						로그아웃
 					</Text>
 				</button>
+			) : (
+				<Link to="/register">
+					<Text color="pink" fontSize="large">
+						회원가입
+					</Text>
+				</Link>
 			)}
 		</SpaceAround>
 	);

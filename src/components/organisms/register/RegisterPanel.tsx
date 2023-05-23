@@ -6,13 +6,10 @@ import Input from "../../atoms/Input";
 import Text from "../../atoms/Text";
 import { useNavigate } from "react-router-dom";
 import Hooks from "../../../lib/Hooks";
-import UserStore from "../../../stores/UserStore";
 
 type Props = {};
 
 function RegisterPanel({}: Props) {
-	const { setIsLoggedIn, setEmail, setId, setAccessToken, setRefreshToken } =
-		UserStore();
 	const navigate = useNavigate();
 	const [inputEmail, setInputEmail] = useState("");
 	const [pw, setPw] = useState("");
@@ -26,12 +23,7 @@ function RegisterPanel({}: Props) {
 		}
 		Hooks.register(inputEmail, pw).then((res) => {
 			if (res.status === 201) {
-				setIsLoggedIn(true);
-				setEmail(inputEmail);
-				setId(res.data.id);
-				setAccessToken(res.data.accessToken);
-				setRefreshToken(res.data.refreshTokne);
-				navigate("/");
+				navigate("/login");
 			}
 		});
 	};
