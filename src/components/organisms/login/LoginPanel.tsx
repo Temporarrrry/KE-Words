@@ -19,7 +19,6 @@ const LoginPanel = (props: Props) => {
 
 	const login: () => void = () => {
 		Hooks.login(inputEmail, pw).then((res) => {
-			console.log("login", res);
 			if (res.status === 200) {
 				setIsLoggedIn(true);
 				setEmail(inputEmail);
