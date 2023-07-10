@@ -1,11 +1,12 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../../atoms/Button";
-import MainTitle from "./MainTitle";
+import Button from "../atoms/Button";
+import MainTitle from "../molecules/main/MainTitle";
 
 type Props = {};
 
-const MainPanel = (props: Props) => {
+function StudySelectPage({}: Props) {
   const navigate = useNavigate();
 
   return (
@@ -18,38 +19,29 @@ const MainPanel = (props: Props) => {
       <Section>
         <Button
           buttonType="border"
-          width="90%"
-          height="40%"
+          width="40%"
+          height="80%"
           fontSize="40px"
           onClick={() => {
-            navigate("/study");
+            navigate("/study/word");
           }}>
-          공부하기
+          단어 공부하기
         </Button>
         <Button
           buttonType="border"
           width="40%"
-          height="40%"
+          height="80%"
           fontSize="40px"
           onClick={() => {
-            navigate("/practice");
+            navigate("/study/sentence");
           }}>
-          연습하기
-        </Button>
-        <Button
-          buttonType="border"
-          width="40%"
-          height="40%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/test");
-          }}>
-          시험보기
+          문장 공부하기
         </Button>
       </Section>
     </Article>
   );
-};
+}
+export default StudySelectPage;
 
 const Article = styled.article`
   width: 80%;
@@ -66,5 +58,3 @@ const Section = styled.section`
   flex-wrap: wrap;
   justify-content: space-around;
 `;
-
-export default MainPanel;

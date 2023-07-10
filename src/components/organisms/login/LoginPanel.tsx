@@ -7,6 +7,7 @@ import Input from "../../atoms/Input";
 import Text from "../../atoms/Text";
 import Hooks from "../../../lib/Hooks";
 import UserStore from "../../../stores/UserStore";
+import Article from "../../atoms/layouts/Article";
 
 type Props = {};
 
@@ -65,14 +66,6 @@ const LoginPanel = (props: Props) => {
   );
 };
 
-const Article = styled.article`
-  width: 600px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20vh auto;
-`;
 const Section = styled.section`
   width: 100%;
   height: 100%;

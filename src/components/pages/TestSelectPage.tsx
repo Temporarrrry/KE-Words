@@ -1,11 +1,12 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../../atoms/Button";
-import MainTitle from "./MainTitle";
+import Button from "../atoms/Button";
+import MainTitle from "../molecules/main/MainTitle";
 
 type Props = {};
 
-const MainPanel = (props: Props) => {
+function TestSelectPage({}: Props) {
   const navigate = useNavigate();
 
   return (
@@ -22,34 +23,51 @@ const MainPanel = (props: Props) => {
           height="40%"
           fontSize="40px"
           onClick={() => {
-            navigate("/study");
+            navigate("/test/word");
           }}>
-          공부하기
+          단어 시험보기
         </Button>
         <Button
           buttonType="border"
-          width="40%"
+          width="25%"
           height="40%"
           fontSize="40px"
           onClick={() => {
-            navigate("/practice");
+            navigate("/test/sentence");
           }}>
-          연습하기
+          문장 의미
+          <br />
+          시험보기
         </Button>
         <Button
           buttonType="border"
-          width="40%"
+          width="25%"
           height="40%"
           fontSize="40px"
           onClick={() => {
-            navigate("/test");
+            navigate("/test/order");
           }}>
+          문장 순서
+          <br />
+          시험보기
+        </Button>
+        <Button
+          buttonType="border"
+          width="25%"
+          height="40%"
+          fontSize="40px"
+          onClick={() => {
+            navigate("/test/blank");
+          }}>
+          문장 빈칸
+          <br />
           시험보기
         </Button>
       </Section>
     </Article>
   );
-};
+}
+export default TestSelectPage;
 
 const Article = styled.article`
   width: 80%;
@@ -66,5 +84,3 @@ const Section = styled.section`
   flex-wrap: wrap;
   justify-content: space-around;
 `;
-
-export default MainPanel;
