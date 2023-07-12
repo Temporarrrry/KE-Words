@@ -96,6 +96,12 @@ export default {
       });
   },
 
+  getWord: async (id: number) => {
+    return await instance.get(`/word/findById?id=${id}`).catch((e) => {
+      console.log("getWord", e.response);
+      return e.response;
+    });
+  },
   getWords: async (cnt: number) => {
     return await instance.get(`/word/getWords?count=${cnt}`).catch((e) => {
       console.log("getWord", e.response);

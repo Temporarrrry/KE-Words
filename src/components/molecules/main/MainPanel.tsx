@@ -22,7 +22,7 @@ const MainPanel = (props: Props) => {
           height="40%"
           fontSize="40px"
           onClick={() => {
-            navigate("/study");
+            navigate("/study/select");
           }}>
           공부하기
         </Button>
@@ -32,7 +32,7 @@ const MainPanel = (props: Props) => {
           height="40%"
           fontSize="40px"
           onClick={() => {
-            navigate("/practice");
+            navigate("/practice/select");
           }}>
           연습하기
         </Button>
@@ -42,7 +42,7 @@ const MainPanel = (props: Props) => {
           height="40%"
           fontSize="40px"
           onClick={() => {
-            navigate("/test");
+            navigate("/test/select");
           }}>
           시험보기
         </Button>
