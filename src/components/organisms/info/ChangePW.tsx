@@ -4,6 +4,7 @@ import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
 import Input from "../../atoms/Input";
 import Text from "../../atoms/Text";
 import Button from "../../atoms/Button";
+import Hooks from "../../../lib/Hooks";
 
 function ChangePW() {
   const [pw, setPw] = useState("");
@@ -11,6 +12,19 @@ function ChangePW() {
 
   const changePw = () => {
     console.log(pw, pwConfirm);
+    if (pw != pwConfirm) {
+      alert("서로 달라요...");
+      return;
+    }
+    Hooks.changePw(pw).then((res) => {
+      setPw("");
+      setPwConfirm("");
+      if (res.status === 200) {
+        alert("변경 완료!");
+      } else {
+        alert("뭔가 이상해요...");
+      }
+    });
   };
 
   return (

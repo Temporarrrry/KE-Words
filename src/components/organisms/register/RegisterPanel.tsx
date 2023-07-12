@@ -21,10 +21,17 @@ function RegisterPanel({}: Props) {
       alert("비밀번호가 맞지 않아요...");
       setPw("");
       setPwConfrim("");
+      return;
     }
-    Hooks.register(inputEmail, pw).then((res) => {
-      if (res.status === 201) {
-        navigate("/login");
+    Hooks.chkEmailDuplicate(inputEmail).then((res) => {
+      if (res.status === 200) {
+        Hooks.register(inputEmail, pw).then((res) => {
+          if (res.status === 201) {
+            navigate("/login");
+          }
+        });
+      } else {
+        alert("이미 등록된 이메일이 있어요...");
       }
     });
   };
