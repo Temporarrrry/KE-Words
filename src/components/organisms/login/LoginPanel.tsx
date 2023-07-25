@@ -12,8 +12,15 @@ import Article from "../../atoms/layouts/Article";
 type Props = {};
 
 const LoginPanel = (props: Props) => {
-  const { setIsLoggedIn, setEmail, setId, setAccessToken, setRefreshToken } =
-    UserStore();
+  const {
+    setIsLoggedIn,
+    setEmail,
+    setId,
+    setAccessToken,
+    setRefreshToken,
+    setLastWord,
+    setLastSentence,
+  } = UserStore();
   const navigate = useNavigate();
   const [inputEmail, setInputEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -26,9 +33,18 @@ const LoginPanel = (props: Props) => {
         setId(res.data.id);
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
-        navigate("/");
+        callback();
       }
     });
+  };
+  const callback: () => void = async () => {
+    let lastWord = await Hooks.getLastWordId();
+    let lastSentence = await Hooks.getLastSentenceId();
+    if (lastWord.status === 200 && lastSentence.status === 200) {
+      setLastWord(lastWord.data.wordId);
+      setLastSentence(lastSentence.data.sentenceId);
+      navigate("/");
+    }
   };
 
   return (

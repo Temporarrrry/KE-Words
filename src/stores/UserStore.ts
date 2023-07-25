@@ -6,12 +6,16 @@ interface UserInfo {
   id: number;
   accessToken: string;
   refreshToken: string;
+  lastWord: number;
+  lastSentence: number;
 
   setIsLoggedIn: (val: boolean) => void;
   setEmail: (val: string) => void;
   setId: (val: number) => void;
   setAccessToken: (val: string) => void;
   setRefreshToken: (val: string) => void;
+  setLastWord: (val: number) => void;
+  setLastSentence: (val: number) => void;
 }
 
 export default create<UserInfo>((set) => ({
@@ -20,6 +24,8 @@ export default create<UserInfo>((set) => ({
   id: -1,
   accessToken: "",
   refreshToken: "",
+  lastWord: -1,
+  lastSentence: -1,
 
   setIsLoggedIn: (val: boolean) => {
     set({ isLoggedIn: val });
@@ -35,5 +41,11 @@ export default create<UserInfo>((set) => ({
   },
   setRefreshToken: (val: string) => {
     set({ refreshToken: val });
+  },
+  setLastWord(val) {
+    set({ lastWord: val });
+  },
+  setLastSentence(val) {
+    set({ lastSentence: val });
   },
 }));

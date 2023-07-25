@@ -6,6 +6,7 @@ import InfoPage from "../pages/InfoPage";
 import StudySelectPage from "../pages/StudySelectPage";
 import TestSelectPage from "../pages/TestSelectPage";
 import PracticeSelectPage from "../pages/PracticeSelectPage";
+import StudyPage from "../pages/StudyPage";
 
 type Props = {};
 
@@ -17,8 +18,8 @@ function RootRouter({}: Props) {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/info" element={<InfoPage />} />
       <Route path="/study/select" element={<StudySelectPage />} />
-      <Route path="/study/word" element={<InfoPage />} />
-      <Route path="/study/sentence" element={<InfoPage />} />
+      <Route path="/study/word" element={<StudyPage type={0} />} />
+      <Route path="/study/sentence" element={<StudyPage type={1} />} />
       <Route path="/practice/select" element={<PracticeSelectPage />} />
       <Route path="/practice/word" element={<InfoPage />} />
       <Route path="/practice/sentence" element={<InfoPage />} />

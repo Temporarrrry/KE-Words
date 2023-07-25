@@ -1,11 +1,15 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import Study from "../organisms/study/Study";
 
-type Props = {};
+// import { useParams } from "react-router-dom";
 
-function StudyPage({}: Props) {
-  let { lang } = useParams();
-  return;
+type Props = {
+  type: number;
+};
+
+function StudyPage({ type }: Props) {
+  // let { lang } = useParams();
+  return <Study type={type} />;
 }
 
 export default StudyPage;

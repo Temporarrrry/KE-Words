@@ -78,6 +78,18 @@ export default {
       return e.response;
     });
   },
+  getLastWordId: async () => {
+    return await instance.get(`lastWord/findByUserId`).catch((e) => {
+      console.log("getLastWordId");
+      return e.response;
+    });
+  },
+  getLastSentenceId: async () => {
+    return await instance.get(`lastSentence/findByUserId`).catch((e) => {
+      console.log("getLastSentenceId");
+      return e.response;
+    });
+  },
 
   addBookmark: async (wordId: number) => {
     return await instance
@@ -102,17 +114,11 @@ export default {
       return e.response;
     });
   },
-  getWords: async (cnt: number) => {
-    return await instance.get(`/word/getWords?count=${cnt}`).catch((e) => {
-      console.log("getWord", e.response);
-      return e.response;
-    });
-  },
-  getWordByEng: async (word: string) => {
+  getWords: async (page: number) => {
     return await instance
-      .post(`/word/findByEnglish`, { english: word })
+      .get(`/word/findAll?page=${page}&size=20`)
       .catch((e) => {
-        console.log("getWord", e.response);
+        console.log("getWords", e.response);
         return e.response;
       });
   },
