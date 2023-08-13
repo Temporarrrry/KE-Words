@@ -29,7 +29,8 @@ function TestSelectPage({}: Props) {
               type="border"
               width={`${idx === 0 ? "90%" : "25%"}`}
               height="40%"
-              fontSize="40px"
+              fontSize={2}
+              smallFont={1.5}
               onClick={() => {
                 navigate(item.link);
               }}>

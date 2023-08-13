@@ -27,7 +27,8 @@ function StudySelectPage({}: Props) {
               type="border"
               width="40%"
               height="80%"
-              fontSize="40px"
+              fontSize={2}
+              smallFont={1.5}
               onClick={() => {
                 navigate(item.link);
               }}>

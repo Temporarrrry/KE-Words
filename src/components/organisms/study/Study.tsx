@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Text from "../../atoms/Text";
 import Button from "../../atoms/Button";
 import Flex from "../../atoms/layouts/Flex";
+import { Word } from "../../../lib/Types";
 
 type Props = {
   type: number; // 0: word, 1: sentence
@@ -97,13 +98,13 @@ const Study = (props: Props) => {
           {items.map((word, idx) => {
             return (
               <Item>
-                <Text color="blue" fontSize="title">
+                <Text color="blue" fontSize={3} smallFont={2}>
                   {word.english}
                 </Text>
                 <Flex gap="10px" direction="column">
-                  {word.korean.map((mean, idx) => {
+                  {word.korean.map((mean: string, idx: number) => {
                     return (
-                      <Text color="pink" fontSize="large">
+                      <Text color="pink" fontSize={2} smallFont={1.5}>
                         {idx + 1}. {mean}
                       </Text>
                     );

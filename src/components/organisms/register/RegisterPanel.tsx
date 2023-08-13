@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
@@ -7,6 +6,7 @@ import Text from "../../atoms/Text";
 import { useNavigate } from "react-router-dom";
 import Hooks from "../../../lib/Hooks";
 import Article from "../../atoms/layouts/Article";
+import { styled } from "styled-components";
 
 type Props = {};
 
@@ -38,53 +38,52 @@ function RegisterPanel({}: Props) {
 
   return (
     <Article>
-      <Section>
-        <Text color="pink" fontSize="large">
-          회원가입'^'
-        </Text>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}>
-          <SpaceAroundCol gap="30px">
-            <Input
-              type="email"
-              value={inputEmail}
-              onChange={setInputEmail}
-              placeholder="Email"
-              width="600px"
-            />
-            <Input
-              type="password"
-              value={pw}
-              onChange={setPw}
-              placeholder="PW"
-              width="600px"
-            />
-            <Input
-              type="password"
-              value={pwConfrim}
-              onChange={setPwConfrim}
-              placeholder="PW"
-              width="600px"
-            />
-            <Button width="600px" onClick={register}>
-              로그인
-            </Button>
-          </SpaceAroundCol>
-        </form>
-      </Section>
+      <Text color="pink" fontSize={3} smallFont={2}>
+        회원가입
+      </Text>
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}>
+        <SpaceAroundCol gap="30px">
+          <Input
+            type="email"
+            value={inputEmail}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setInputEmail(e.target.value);
+            }}
+            placeholder="Email"
+            width="100%"
+          />
+          <Input
+            type="password"
+            value={pw}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPw(e.target.value);
+            }}
+            placeholder="PW"
+            width="100%"
+          />
+          <Input
+            type="password"
+            value={pwConfrim}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPwConfrim(e.target.value);
+            }}
+            placeholder="PW"
+            width="100%"
+          />
+          <Button width="100%" onClick={register}>
+            로그인
+          </Button>
+        </SpaceAroundCol>
+      </Form>
     </Article>
   );
 }
 
-const Section = styled.section`
+const Form = styled.form`
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export default RegisterPanel;

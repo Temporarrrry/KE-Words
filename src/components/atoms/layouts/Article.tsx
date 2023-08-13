@@ -6,7 +6,7 @@ type Props = {
   marginTop?: string;
 };
 
-function Article({ children, marginTop = "28dvh" }: Props) {
+function Article({ children, marginTop = "20dvh" }: Props) {
   return <Arti marginTop={marginTop}>{children}</Arti>;
 }
 
@@ -17,12 +17,15 @@ interface StyleProps {
 }
 
 const Arti = styled.article<StyleProps>`
-  margin: ${(props) => `${props.marginTop} auto`};
+  margin: 0 auto;
+  margin-top: ${(props) => props.marginTop};
   width: 600px;
-  height: 300px;
+  height: 30dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
+  @media screen and (max-width: 700px) {
+    width: 90dvw;
+  }
 `;

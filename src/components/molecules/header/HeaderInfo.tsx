@@ -26,19 +26,19 @@ const HeaderInfo = (props: Props) => {
   return (
     <SpaceAround gap="30px">
       <Link to={isLoggedIn ? "/info" : "/login"}>
-        <Text color="pink" fontSize="large">
+        <Text color="pink" fontSize={2} smallFont={1.5}>
           {isLoggedIn ? email.split("@")[0] : "로그인"}
         </Text>
       </Link>
       {isLoggedIn ? (
         <button onClick={logout}>
-          <Text color="pink" fontSize="large">
+          <Text color="pink" fontSize={2} smallFont={1.5}>
             로그아웃
           </Text>
         </button>
       ) : (
         <Link to="/register">
-          <Text color="pink" fontSize="large">
+          <Text color="pink" fontSize={2} smallFont={1.5}>
             회원가입
           </Text>
         </Link>

@@ -12,7 +12,7 @@ function ChangePW() {
 
   const changePw = () => {
     console.log(pw, pwConfirm);
-    if (pw != pwConfirm) {
+    if (pw !== pwConfirm) {
       alert("서로 달라요...");
       return;
     }
@@ -29,7 +29,7 @@ function ChangePW() {
 
   return (
     <Section>
-      <Text color="pink" fontSize="large">
+      <Text color="pink" fontSize={3} smallFont={2}>
         내 정보'^'
       </Text>
       <form
@@ -40,14 +40,18 @@ function ChangePW() {
           <Input
             type="password"
             value={pw}
-            onChange={setPw}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPw(e.target.value);
+            }}
             placeholder="PW"
             width="600px"
           />
           <Input
             type="password"
             value={pwConfirm}
-            onChange={setPwConfirm}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPwConfirm(e.target.value);
+            }}
             placeholder="PW 확인"
             width="600px"
           />

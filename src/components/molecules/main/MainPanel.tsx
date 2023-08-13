@@ -20,7 +20,8 @@ const MainPanel = (props: Props) => {
           type="border"
           width="90%"
           height="40%"
-          fontSize="40px"
+          fontSize={2}
+          smallFont={1.5}
           onClick={() => {
             navigate("/study/select");
           }}>
@@ -30,7 +31,8 @@ const MainPanel = (props: Props) => {
           type="border"
           width="40%"
           height="40%"
-          fontSize="40px"
+          fontSize={2}
+          smallFont={1.5}
           onClick={() => {
             navigate("/practice/select");
           }}>
@@ -40,7 +42,8 @@ const MainPanel = (props: Props) => {
           type="border"
           width="40%"
           height="40%"
-          fontSize="40px"
+          fontSize={2}
+          smallFont={1.5}
           onClick={() => {
             navigate("/test/select");
           }}>

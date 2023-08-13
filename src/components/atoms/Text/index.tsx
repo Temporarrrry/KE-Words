@@ -7,7 +7,8 @@ type Props = {
   color?: "pink" | "blue";
   width?: string;
   height?: string;
-  fontSize?: string;
+  fontSize?: number;
+  smallFont?: number;
 };
 
 const Text = ({
@@ -15,7 +16,8 @@ const Text = ({
   color = "blue",
   width = "auto",
   height = "auto",
-  fontSize = "1rem",
+  fontSize = 1,
+  smallFont = 0.5,
 }: Props) => {
   return (
     <Div
@@ -23,6 +25,7 @@ const Text = ({
       width={width}
       height={height}
       fontSize={fontSize}
+      smallFont={smallFont}
       color={color}>
       {children}
     </Div>
@@ -32,14 +35,18 @@ const Text = ({
 const Div = styled.div<{
   width: string;
   height: string;
-  fontSize: string;
+  fontSize: number;
+  smallFont: number;
   color: "pink" | "blue";
 }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   line-height: ${(props) => props.height};
-  fontsize: ${(props) => props.fontSize};
+  font-size: ${(props) => props.fontSize}rem;
   color: ${(props) => (props.color === "blue" ? Colors.blue : Colors.pink)};
+  @media screen and (max-width: 700px) {
+    font-size: ${(props) => props.smallFont}rem;
+  }
 `;
 
 export default Text;
