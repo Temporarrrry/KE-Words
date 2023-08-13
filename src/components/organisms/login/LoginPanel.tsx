@@ -61,14 +61,14 @@ const LoginPanel = (props: Props) => {
             <Input
               type="email"
               value={inputEmail}
-              setValue={setInputEmail}
+              onChange={setInputEmail}
               placeholder="Email"
               width="600px"
             />
             <Input
               type="password"
               value={pw}
-              setValue={setPw}
+              onChange={setPw}
               placeholder="PW"
               width="600px"
             />

@@ -24,8 +24,8 @@ export default create<UserInfo>((set) => ({
   id: -1,
   accessToken: "",
   refreshToken: "",
-  lastWord: -1,
-  lastSentence: -1,
+  lastWord: 0,
+  lastSentence: 0,
 
   setIsLoggedIn: (val: boolean) => {
     set({ isLoggedIn: val });

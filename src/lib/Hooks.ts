@@ -122,6 +122,22 @@ export default {
         return e.response;
       });
   },
+  getSentence: async (sentence: string) => {
+    return await instance
+      .get(`/sentence/findByEnglish?english=${sentence}`)
+      .catch((e) => {
+        console.log("getSentence", e.response);
+        return e.response;
+      });
+  },
+  getSentences: async (page: number) => {
+    return await instance
+      .get(`/sentence/findAll?page=${page}&size=20`)
+      .catch((e) => {
+        console.log("getSentences", e.response);
+        return e.response;
+      });
+  },
 
   generateQuiz: async (cnt: number) => {
     return await instance

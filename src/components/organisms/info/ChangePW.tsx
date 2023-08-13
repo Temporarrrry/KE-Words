@@ -40,14 +40,14 @@ function ChangePW() {
           <Input
             type="password"
             value={pw}
-            setValue={setPw}
+            onChange={setPw}
             placeholder="PW"
             width="600px"
           />
           <Input
             type="password"
             value={pwConfirm}
-            setValue={setPwConfirm}
+            onChange={setPwConfirm}
             placeholder="PW 확인"
             width="600px"
           />

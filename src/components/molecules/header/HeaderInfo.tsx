@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SpaceAround from "../../atoms/layouts/SpaceAround";
-import Text from "../../atoms/Text";
 import UserStore from "../../../stores/UserStore";
+import Text from "../../atoms/Text";
 
 type Props = {};
 

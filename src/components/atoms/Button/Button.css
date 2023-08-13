@@ -1,0 +1,46 @@
+button {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.blue-button.bg {
+  background-color: #92a8d1;
+  color: white;
+}
+.blue-button.border {
+  background-color: white;
+  color: #92a8d1;
+  border: 1px solid #92a8d1;
+}
+.blue-button.bg:hover {
+  background-color: white;
+  color: #92a8d1;
+  border: 1px solid #92a8d1;
+}
+.blue-button.border:hover {
+  background-color: #92a8d1;
+  color: white;
+}
+
+.pink-button.bg {
+  background-color: #f7cac9;
+  color: white;
+}
+.pink-button.border {
+  background-color: white;
+  color: #f7cac9;
+  border: 1px solid #f7cac9;
+}
+.pink-button.bg:hover {
+  background-color: white;
+  color: #f7cac9;
+  border: 1px solid #f7cac9;
+}
+.pink-button.border:hover {
+  background-color: #f7cac9;
+  color: white;
+}

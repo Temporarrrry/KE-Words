@@ -8,6 +8,10 @@ type Props = {};
 
 function StudySelectPage({}: Props) {
   const navigate = useNavigate();
+  const component = [
+    { link: "/study/word", text: "단어 공부하기" },
+    { link: "/study/sentence", text: "문장 공부하기" },
+  ];
 
   return (
     <Article>
@@ -17,26 +21,20 @@ function StudySelectPage({}: Props) {
         gap="30px"
       />
       <Section>
-        <Button
-          buttonType="border"
-          width="40%"
-          height="80%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/study/word");
-          }}>
-          단어 공부하기
-        </Button>
-        <Button
-          buttonType="border"
-          width="40%"
-          height="80%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/study/sentence");
-          }}>
-          문장 공부하기
-        </Button>
+        {component.map((item) => {
+          return (
+            <Button
+              type="border"
+              width="40%"
+              height="80%"
+              fontSize="40px"
+              onClick={() => {
+                navigate(item.link);
+              }}>
+              {item.text}
+            </Button>
+          );
+        })}
       </Section>
     </Article>
   );

@@ -1,48 +1,63 @@
-import React, { FunctionComponent, HTMLProps } from "react";
-import { InputLayout, InputLayoutProps } from "./styles";
+"use client";
 
-export interface InputProps
-	extends HTMLProps<HTMLInputElement>,
-		InputLayoutProps {
-	type?: "text" | "number" | "email" | "password";
-	color?: "blue" | "pink";
-	width?: string;
-	height?: string;
-	fontSize?: string;
-	placeholder?: string;
-	value: string;
-	setValue: React.Dispatch<React.SetStateAction<string>>;
-}
+import React from "react";
+import { styled } from "styled-components";
 
-const Input: FunctionComponent<InputProps> = (props) => {
-	const onChange = (e: any) => {
-		props.setValue(e.currentTarget.value);
-	};
-
-	return (
-		<InputLayout
-			type={props.type}
-			color={props.color}
-			style={{
-				width: props.width,
-				height: props.height,
-				lineHeight: props.height,
-				fontSize: props.fontSize,
-			}}
-			placeholder={props.placeholder}
-			value={props.value}
-			onChange={onChange}
-		/>
-	);
+type Props = {
+  type?: "text" | "email" | "color" | "datetime" | "password";
+  placeholder?: string;
+  value: any;
+  onChange: any;
+  width?: string;
+  height?: string;
+  border?: boolean;
+  borderColor?: string;
+  fontSize?: string;
 };
 
-Input.defaultProps = {
-	type: "text",
-	color: "blue",
-	placeholder: "",
-	width: "200px",
-	height: "50px",
-	fontSize: "18px",
+const Input = ({
+  type = "text",
+  placeholder = "",
+  value,
+  onChange,
+  width = "20dvw",
+  height = "50px",
+  border = true,
+  borderColor = "black",
+  fontSize = "1rem",
+}: Props) => {
+  return (
+    <In
+      value={value}
+      placeholder={placeholder}
+      type={type}
+      onChange={onChange}
+      width={width}
+      height={height}
+      border={border}
+      borderColor={borderColor}
+      fontSize={fontSize}
+    />
+  );
 };
+
+const In = styled.input<{
+  fontSize: string;
+  width: string;
+  height: string;
+  border: boolean;
+  borderColor: string;
+}>`
+  font-size: ${(props) => props.fontSize};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  line-height: ${(props) => props.height};
+  border: ${(props) => (props.border ? "1px solid" : "0")};
+  border-color: ${(props) => props.borderColor};
+  color: ${(props) => props.borderColor};
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+`;
 
 export default Input;

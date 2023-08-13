@@ -29,22 +29,50 @@ const Study = (props: Props) => {
           alert("서버 에러");
         }
       });
+    } else {
+      console.log(lastSentence);
+      Hooks.getSentences(lastSentence).then((res) => {
+        if (res.status === 200) {
+          if (res.data.length === 0) {
+            getMore(0);
+          } else {
+            setItems(res.data);
+          }
+        } else {
+          alert("서버 에러");
+        }
+      });
     }
   }, []);
 
   const getMore = async (id: number) => {
-    await Hooks.getWords(id / 20).then((res) => {
-      if (res.status === 200) {
-        if (res.data.length === 0) {
-          getMore(0);
+    if (props.type === 0) {
+      await Hooks.getWords(id / 20).then((res) => {
+        if (res.status === 200) {
+          if (res.data.length === 0) {
+            getMore(0);
+          } else {
+            setLastWord(id);
+            setItems([...items, ...res.data]);
+          }
         } else {
-          setLastWord(id);
-          setItems([...items, ...res.data]);
+          alert("서버 에러");
         }
-      } else {
-        alert("서버 에러");
-      }
-    });
+      });
+    } else {
+      await Hooks.getSentences(id / 20).then((res) => {
+        if (res.status === 200) {
+          if (res.data.length === 0) {
+            getMore(0);
+          } else {
+            setLastWord(id);
+            setItems([...items, ...res.data]);
+          }
+        } else {
+          alert("서버 에러");
+        }
+      });
+    }
   };
 
   const list: HTMLElement | null = document.querySelector("#study-list");
@@ -61,8 +89,8 @@ const Study = (props: Props) => {
   return (
     <Article>
       <Flex align="space-between" height="5dvh">
-        <Text type="blue">공부하기</Text>
-        <Text type="blue">#{curId}</Text>
+        <Text color="blue">공부하기</Text>
+        <Text color="blue">#{curId}</Text>
       </Flex>
       <ListWrapper>
         <List id="study-list">
@@ -88,24 +116,20 @@ const Study = (props: Props) => {
       </ListWrapper>
       <Flex align="center" gap="4dvw">
         <Button
-          type="button"
-          title="left"
           onClick={() => {
             moveItem(curIdx - 1);
           }}
-          buttonType="border"
+          type="border"
           color="blue"
           width="15dvw"
           height="5dvh">
           <img src="/src/assets/icons/left-blue.svg" />
         </Button>
         <Button
-          type="button"
-          title="right"
           onClick={() => {
             moveItem(curIdx + 1);
           }}
-          buttonType="border"
+          type="border"
           color="blue"
           width="15dvw"
           height="5dvh">

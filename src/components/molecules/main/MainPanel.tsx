@@ -17,7 +17,7 @@ const MainPanel = (props: Props) => {
       />
       <Section>
         <Button
-          buttonType="border"
+          type="border"
           width="90%"
           height="40%"
           fontSize="40px"
@@ -27,7 +27,7 @@ const MainPanel = (props: Props) => {
           공부하기
         </Button>
         <Button
-          buttonType="border"
+          type="border"
           width="40%"
           height="40%"
           fontSize="40px"
@@ -37,7 +37,7 @@ const MainPanel = (props: Props) => {
           연습하기
         </Button>
         <Button
-          buttonType="border"
+          type="border"
           width="40%"
           height="40%"
           fontSize="40px"

@@ -8,6 +8,12 @@ type Props = {};
 
 function PracticeSelectPage({}: Props) {
   const navigate = useNavigate();
+  const component = [
+    { link: "/practice/word", text: "단어 연습하기" },
+    { link: "/practice/sentence", text: "문장 의미<br />연습하기" },
+    { link: "/practice/order", text: "문장 순서<br />연습하기" },
+    { link: "/practice/blank", text: "문장 빈칸<br />연습하기" },
+  ];
 
   return (
     <Article>
@@ -17,52 +23,20 @@ function PracticeSelectPage({}: Props) {
         gap="30px"
       />
       <Section>
-        <Button
-          buttonType="border"
-          width="90%"
-          height="40%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/practice/word");
-          }}>
-          단어 연습하기
-        </Button>
-        <Button
-          buttonType="border"
-          width="25%"
-          height="40%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/practice/sentence");
-          }}>
-          문장 의미
-          <br />
-          연습하기
-        </Button>
-        <Button
-          buttonType="border"
-          width="25%"
-          height="40%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/practice/order");
-          }}>
-          문장 순서
-          <br />
-          연습하기
-        </Button>
-        <Button
-          buttonType="border"
-          width="25%"
-          height="40%"
-          fontSize="40px"
-          onClick={() => {
-            navigate("/practice/blank");
-          }}>
-          문장 빈칸
-          <br />
-          연습하기
-        </Button>
+        {component.map((item, idx) => {
+          return (
+            <Button
+              type="border"
+              width={`${idx === 0 ? "90%" : "25%"}`}
+              height="40%"
+              fontSize="40px"
+              onClick={() => {
+                navigate(item.link);
+              }}>
+              {item.text}
+            </Button>
+          );
+        })}
       </Section>
     </Article>
   );

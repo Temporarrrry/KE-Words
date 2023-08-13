@@ -1,34 +1,45 @@
-import React, { FunctionComponent, HTMLProps } from "react";
-import { TextLayout, TextLayoutProps } from "./styles";
+import React from "react";
+import { styled } from "styled-components";
+import Colors from "../../../lib/Colors";
 
-export interface TextProps extends HTMLProps<HTMLDivElement>, TextLayoutProps {
-	color?: "blue" | "pink";
-	children: React.ReactNode;
-	width?: string;
-	height?: string;
-	fontSize?: "small" | "medium" | "large" | "title";
-}
-
-const Text: FunctionComponent<TextProps> = (props) => {
-	return (
-		<TextLayout
-			color={props.color}
-			fontSize={props.fontSize}
-			style={{
-				width: props.width,
-				height: props.height,
-			}}
-		>
-			{props.children}
-		</TextLayout>
-	);
+type Props = {
+  children: React.ReactNode;
+  color?: "pink" | "blue";
+  width?: string;
+  height?: string;
+  fontSize?: string;
 };
 
-Text.defaultProps = {
-	color: "blue",
-	fontSize: "medium",
-	width: "auto",
-	height: "auto",
+const Text = ({
+  children,
+  color = "blue",
+  width = "auto",
+  height = "auto",
+  fontSize = "1rem",
+}: Props) => {
+  return (
+    <Div
+      className={`${color}-text`}
+      width={width}
+      height={height}
+      fontSize={fontSize}
+      color={color}>
+      {children}
+    </Div>
+  );
 };
+
+const Div = styled.div<{
+  width: string;
+  height: string;
+  fontSize: string;
+  color: "pink" | "blue";
+}>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  line-height: ${(props) => props.height};
+  fontsize: ${(props) => props.fontSize};
+  color: ${(props) => (props.color === "blue" ? Colors.blue : Colors.pink)};
+`;
 
 export default Text;

@@ -1,44 +1,49 @@
-import React, { FunctionComponent, HTMLProps } from "react";
-import { ButtonLayout, ButtonLayoutProps } from "./styles";
+"use client";
 
-export interface ButtonProps
-	extends HTMLProps<HTMLButtonElement>,
-		ButtonLayoutProps {
-	type?: "submit" | "button";
-	children: React.ReactNode;
-	buttonType?: "bg" | "border";
-	color?: "blue" | "pink";
-	width?: string;
-	height?: string;
-	fontSize?: string;
-	onClick: () => void;
-}
+import React from "react";
+import "./Button.css";
+import { styled } from "styled-components";
 
-const Button: FunctionComponent<ButtonProps> = (props) => {
-	return (
-		<ButtonLayout
-			type={props.type}
-			buttonType={props.buttonType}
-			color={props.color}
-			style={{
-				width: props.width,
-				height: props.height,
-				fontSize: props.fontSize,
-			}}
-			onClick={props.onClick}
-		>
-			{props.children}
-		</ButtonLayout>
-	);
+type Props = {
+  type?: string;
+  color?: "blue" | "pink";
+  children: React.ReactNode;
+  onClick: () => void;
+  width?: string;
+  height?: string;
+  fontSize?: string;
 };
 
-Button.defaultProps = {
-	type: "submit",
-	buttonType: "bg",
-	color: "blue",
-	width: "200px",
-	height: "50px",
-	fontSize: "18px",
+const Button = ({
+  type = "bg",
+  color = "blue",
+  children,
+  onClick,
+  width = "70px",
+  height = "30px",
+  fontSize = "1rem",
+}: Props) => {
+  return (
+    <Btn
+      className={`${type} ${color}-button`}
+      onClick={onClick}
+      width={width}
+      height={height}
+      fontSize={fontSize}>
+      {children}
+    </Btn>
+  );
 };
+
+const Btn = styled.button<{
+  width: string;
+  height: string;
+  fontSize: string;
+}>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  line-height: ${(props) => props.height};
+  fontsize: ${(props) => props.fontSize};
+`;
 
 export default Button;
