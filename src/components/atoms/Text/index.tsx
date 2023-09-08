@@ -39,9 +39,11 @@ const Div = styled.div<{
   smallFont: number;
   color: "pink" | "blue";
 }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  line-height: ${(props) => props.height};
   font-size: ${(props) => props.fontSize}rem;
   color: ${(props) => (props.color === "blue" ? Colors.blue : Colors.pink)};
   @media screen and (max-width: 700px) {

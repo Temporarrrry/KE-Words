@@ -44,9 +44,11 @@ const Btn = styled.button<{
   fontSize: number;
   smallFont?: number;
 }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  line-height: ${(props) => props.height};
   font-size: ${(props) => props.fontSize}rem;
   @media screen and (max-width: 700px) {
     font-size: ${(props) => props.smallFont}rem;

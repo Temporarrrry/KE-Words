@@ -4,7 +4,7 @@ import SpaceAroundCol from "../../atoms/layouts/SpaceAroundCol";
 import Input from "../../atoms/Input";
 import Text from "../../atoms/Text";
 import Button from "../../atoms/Button";
-import Hooks from "../../../lib/Hooks";
+import MemberApi from "../../../lib/api/MemberApi";
 
 function ChangePW() {
   const [pw, setPw] = useState("");
@@ -16,7 +16,7 @@ function ChangePW() {
       alert("서로 달라요...");
       return;
     }
-    Hooks.changePw(pw).then((res) => {
+    MemberApi.changePw(pw).then((res) => {
       setPw("");
       setPwConfirm("");
       if (res.status === 200) {

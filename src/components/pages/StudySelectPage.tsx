@@ -4,9 +4,7 @@ import styled from "styled-components";
 import Button from "../atoms/Button";
 import MainTitle from "../molecules/main/MainTitle";
 
-type Props = {};
-
-function StudySelectPage({}: Props) {
+function StudySelectPage() {
   const navigate = useNavigate();
   const component = [
     { link: "/study/word", text: "단어 공부하기" },
@@ -15,15 +13,12 @@ function StudySelectPage({}: Props) {
 
   return (
     <Article>
-      <MainTitle
-        title="KE-Words"
-        subTitle="한국어, 영어를 공부하는 사람들을 위한"
-        gap="30px"
-      />
+      <MainTitle />
       <Section>
         {component.map((item) => {
           return (
             <Button
+              key={`StudySelectBtn_${item.text}`}
               type="border"
               width="40%"
               height="80%"
