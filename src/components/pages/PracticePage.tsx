@@ -9,8 +9,7 @@ type Props = {
 
 const PracticePage = (props: Props) => {
   const targets = [
-    <MeaningTest type={0} isPractice={true} />,
-    <MeaningTest type={1} isPractice={true} />,
+    <MeaningTest isPractice={true} />,
     <OrderingTest isPractice={true} />,
     <FillingBlankTest isPractice={true} />,
   ];

@@ -10,6 +10,8 @@ import StudyPage from "./components/pages/StudyPage";
 import PracticeSelectPage from "./components/pages/PracticeSelectPage";
 import PracticePage from "./components/pages/PracticePage";
 import TestSelectPage from "./components/pages/TestSelectPage";
+import WordQuizPage from "./components/pages/WordQuizPage";
+import MeaningQuizPage from "./components/pages/MeaningQuizPage";
 
 function App() {
   return (
@@ -28,10 +30,13 @@ function App() {
             element={<StudyPage isWord={false} />}
           />
           <Route path="/practice/select" element={<PracticeSelectPage />} />
-          <Route path="/practice/word" element={<PracticePage type={0} />} />
+          <Route
+            path="/practice/word"
+            element={<WordQuizPage isPractice={true} />}
+          />
           <Route
             path="/practice/sentence"
-            element={<PracticePage type={1} />}
+            element={<MeaningQuizPage isPractice={true} />}
           />
           <Route path="/practice/order" element={<PracticePage type={2} />} />
           <Route path="/practice/blank" element={<PracticePage type={3} />} />

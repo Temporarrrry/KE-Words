@@ -9,6 +9,7 @@ import MemberApi from "../../../lib/api/MemberApi";
 function ChangePW() {
   const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
+  const [newPw, setNewPw] = useState("");
 
   const changePw = () => {
     console.log(pw, pwConfirm);
@@ -16,9 +17,10 @@ function ChangePW() {
       alert("서로 달라요...");
       return;
     }
-    MemberApi.changePw(pw).then((res) => {
+    MemberApi.changePw(pw, newPw).then((res) => {
       setPw("");
       setPwConfirm("");
+      setNewPw("");
       if (res.status === 200) {
         alert("변경 완료!");
       } else {
@@ -53,6 +55,15 @@ function ChangePW() {
               setPwConfirm(e.target.value);
             }}
             placeholder="PW 확인"
+            width="600px"
+          />
+          <Input
+            type="password"
+            value={newPw}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setNewPw(e.target.value);
+            }}
+            placeholder="새로운 PW"
             width="600px"
           />
           <AlignRight>

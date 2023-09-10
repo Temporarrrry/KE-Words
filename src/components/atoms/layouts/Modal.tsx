@@ -34,7 +34,7 @@ const Modal = ({ children, closeModal, type = 1 }: Props) => {
         )}
         {children}
         {type === 2 && (
-          <Button onClick={closeModal} color="blue">
+          <Button onClick={closeModal} color="blue" width="50px" height="30px">
             확인
           </Button>
         )}

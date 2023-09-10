@@ -19,6 +19,7 @@ function StudyPage({ isWord }: Props) {
   const [items, setItems] = useState<StudyItem[]>([]);
 
   useEffect(() => {
+    console.log(lastSentence, lastWord);
     StudyApi.getStudyItemList(isWord, Math.floor(lastWord / 20)).then((res) => {
       if (res.status === 200) {
         if (res.data.length === 0) {
@@ -42,8 +43,9 @@ function StudyPage({ isWord }: Props) {
           getMore(0);
         } else {
           setLastWord(id);
-          if (id < curId) setItems([...res.data, ...items]);
-          else setItems([...items, ...res.data]);
+          if (id < curId) {
+            setItems([...res.data, ...items]);
+          } else setItems([...items, ...res.data]);
         }
       } else {
         alert("서버 에러");
@@ -52,13 +54,15 @@ function StudyPage({ isWord }: Props) {
   };
 
   const list: HTMLElement | null = document.querySelector("#study-list");
-  const moveItem = (idx: number) => {
+  const moveItem = async (idx: number) => {
     if (curId === 0 || idx === items.length) return;
-    if (idx === -1 && curId > 0) getMore(curId - 2);
-    else if (idx === items.length - 2) getMore(curId + 2);
-    list!.style.left = `${-100 * idx}dvw`;
+    else if (idx === -1 && curId > 0) {
+      await getMore(curId - 2);
+      idx = 19;
+    } else if (idx === items.length - 2) await getMore(curId + 2);
     setCurIdx(idx);
     setCurId(items[idx].id);
+    list!.style.left = `${-100 * idx}dvw`;
   };
 
   return (
@@ -78,7 +82,11 @@ function StudyPage({ isWord }: Props) {
                 <Flex gap="10px" direction="column">
                   {item.korean.map((mean: string, idx: number) => {
                     return (
-                      <Text color="pink" fontSize={2} smallFont={1.5}>
+                      <Text
+                        key={`mean_${item.id}_${idx}`}
+                        color="pink"
+                        fontSize={2}
+                        smallFont={1.5}>
                         {isWord ? `${idx + 1}. ${mean}` : mean}
                       </Text>
                     );

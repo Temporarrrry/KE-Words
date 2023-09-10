@@ -5,10 +5,18 @@ export interface StudyItem {
   bookmarked: boolean;
 }
 
-export interface MeaningTest {
+export interface WordQuiz {
   wordId: number;
   english: string;
   koreanChoice: string[][];
+  originalKorean?: string[];
+}
+
+export interface MeaningQuiz {
+  sentenceId: number;
+  english: string;
+  koreanChoice: string[][];
+  originalKorean?: string[];
 }
 
 export interface SentenceTest {

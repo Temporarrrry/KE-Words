@@ -113,6 +113,7 @@ time,
 mark,
 audio,
 video {
+  color: inherit;
   margin: 0;
   padding: 0;
   border: 0;
@@ -168,8 +169,11 @@ main {
   height: calc(100vh - 50px);
   display: flex;
   justify-content: center;
+  overflow: scroll;
 }
-
+main::-webkit-scrollbar {
+  display: none;
+}
 ol,
 ul {
   list-style: none;
@@ -197,6 +201,7 @@ table {
 input,
 textarea,
 button {
+  padding: 0;
   box-sizing: border-box;
 }
 

@@ -60,8 +60,8 @@ export default {
   },
   resign: async (pw: string) => {
     return await instance
-      .post("/member/resign", {
-        password: pw,
+      .delete("/member/resign", {
+        data: { password: pw },
       })
       .catch((e) => {
         console.log("resign error", e.response);
@@ -70,17 +70,17 @@ export default {
   },
   chkEmailDuplicate: async (email: string) => {
     return await instance
-      .post("/member/userEmailDuplicateCheck", {
-        email: email,
+      .get("/member/userEmailDuplicateCheck", {
+        data: { userEmail: email },
       })
       .catch((e) => {
         console.log("email duplicate error", e.response);
         return e.response;
       });
   },
-  changePw: async (pw: string) => {
+  changePw: async (pw: string, npw: string) => {
     return await instance
-      .post(`/member/changePassword`, { newPassword: pw })
+      .patch(`/member/password`, { password: pw, newPassword: npw })
       .catch((e) => {
         console.log("changePw", e.response);
         return e.response;
@@ -94,9 +94,9 @@ export default {
   },
   getLastId: async (isWord: boolean = true) => {
     return await instance
-      .get(`last${isWord ? "Word" : "Sentence"}/findByUserId`)
+      .get(`last/${isWord ? "word" : "sentence"}`)
       .catch((e) => {
-        console.log("getLastWordId");
+        console.log("getLast", isWord ? "word" : "sentence");
         return e.response;
       });
   },
