@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/KE-Words_Front/static/css/main.b6ac6a5e.css",
-    "main.js": "/KE-Words_Front/static/js/main.ede976cd.js",
+    "main.js": "/KE-Words_Front/static/js/main.9ace38f6.js",
     "static/js/787.0cadccd7.chunk.js": "/KE-Words_Front/static/js/787.0cadccd7.chunk.js",
     "service-worker.js": "/KE-Words_Front/service-worker.js",
     "index.html": "/KE-Words_Front/index.html",
     "main.b6ac6a5e.css.map": "/KE-Words_Front/static/css/main.b6ac6a5e.css.map",
-    "main.ede976cd.js.map": "/KE-Words_Front/static/js/main.ede976cd.js.map",
+    "main.9ace38f6.js.map": "/KE-Words_Front/static/js/main.9ace38f6.js.map",
     "787.0cadccd7.chunk.js.map": "/KE-Words_Front/static/js/787.0cadccd7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b6ac6a5e.css",
-    "static/js/main.ede976cd.js"
+    "static/js/main.9ace38f6.js"
   ]
 }
