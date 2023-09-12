@@ -1,27 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../atoms/Button";
-import MainTitle from "../molecules/main/MainTitle";
+import Button from "../components/atoms/Button";
+import MainTitle from "../components/molecules/main/MainTitle";
+import UserStore from "../stores/UserStore";
 
-function StudySelectPage() {
+function TestSelectPage() {
   const navigate = useNavigate();
+  const { isLoggedIn } = UserStore();
   const component = [
-    { link: "/study/word", text: "단어 공부하기" },
-    { link: "/study/sentence", text: "문장 공부하기" },
+    { link: "/test/word", text: "단어 시험보기" },
+    { link: "/test/sentence", text: "문장 의미 시험보기" },
+    { link: "/test/order", text: "문장 순서 시험보기" },
+    { link: "/test/blank", text: "문장 빈칸 시험보기" },
   ];
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <Article>
       <MainTitle />
       <Section>
-        {component.map((item) => {
+        {component.map((item, idx) => {
           return (
             <Button
-              key={`StudySelectBtn_${item.text}`}
+              key={`TestSelectBtn_${item.text}`}
               type="border"
-              width="40%"
-              height="80%"
+              width={`${idx === 0 ? "90%" : "25%"}`}
+              height="40%"
               fontSize={2}
               smallFont={1.5}
               onClick={() => {
@@ -35,7 +45,7 @@ function StudySelectPage() {
     </Article>
   );
 }
-export default StudySelectPage;
+export default TestSelectPage;
 
 const Article = styled.article`
   width: 80%;

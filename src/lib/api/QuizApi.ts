@@ -10,7 +10,7 @@ export default {
     });
   },
   getWordTest: async () => {
-    return await instance.get(`/quiz/word/meaning/test`).catch((e) => {
+    return await instance.post(`/quiz/word/meaning/test`).catch((e) => {
       console.log(`test word`, e.response);
       return e.response;
     });
@@ -33,12 +33,28 @@ export default {
   },
   gradeTest: async (isWord: boolean, quizId: number, answers: any[]) => {
     return await instance
-      .post(`/${isWord ? "word" : "sentence"}/grade`, {
-        quizId: quizId,
+      .post(`/quiz/${isWord ? "word" : "sentence"}/grade/${quizId}`, {
         userAnswers: answers,
       })
       .catch((e) => {
         console.log(`grade ${isWord ? "word" : "sentence"}`, e.response);
+        return e.response;
+      });
+  },
+
+  getQuizList: async (isWord: boolean, page: number) => {
+    return await instance
+      .get(`/quiz/${isWord ? "word" : "sentence"}?page=${page}&size=10`)
+      .catch((e) => {
+        console.log("getQuizList", e.response);
+        return e.response;
+      });
+  },
+  getQuizDetail: async (isWord: boolean, id: string) => {
+    return await instance
+      .get(`/quiz/${isWord ? "word" : "sentence"}/${id}`)
+      .catch((e) => {
+        console.log("getQuizDetail", e.response);
         return e.response;
       });
   },

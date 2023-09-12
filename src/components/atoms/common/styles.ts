@@ -40,8 +40,8 @@ export const Item = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-export const Img = styled.img`
-  width: 15dvw;
-  height: 5dvh;
+
+  @media screen and (max-width: 700px) {
+    height: auto;
+  }
 `;

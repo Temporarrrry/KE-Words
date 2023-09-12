@@ -1,6 +1,6 @@
 import React from "react";
-import MeaningPractice from "../organisms/practice/MeaningPractice";
-import MeaningTest from "../organisms/test/MeaningTest";
+import MeaningPractice from "../components/organisms/practice/MeaningPractice";
+import MeaningTest from "../components/organisms/test/MeaningTest";
 
 type Props = {
   isPractice: boolean;

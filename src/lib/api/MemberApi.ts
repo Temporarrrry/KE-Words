@@ -36,8 +36,8 @@ export default {
           instance.defaults.headers.common[
             "Authorization"
           ] = `Bearer ${res.data["accessToken"]}`;
-          localStorage.setItem("refreshToken", res.data["refreshToken"]);
-          localStorage.setItem("accessToken", res.data["accessToken"]);
+          localStorage.setItem("KE_refreshToken", res.data["refreshToken"]);
+          localStorage.setItem("KE_accessToken", res.data["accessToken"]);
         }
         return res;
       })

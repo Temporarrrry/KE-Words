@@ -6,7 +6,13 @@ import { WordQuiz } from "../../../lib/Interfaces";
 import Button from "../../atoms/Button";
 import Modal from "../../atoms/layouts/Modal";
 import { useMediaQuery } from "react-responsive";
-import { Article, Img, Item, List, ListWrapper, PagingWrapper } from "./styles";
+import {
+  Article,
+  Item,
+  List,
+  ListWrapper,
+  PagingWrapper,
+} from "../../atoms/common/styles";
 
 const WordPractice = () => {
   const [test, setTest] = useState<WordQuiz[]>([]);
@@ -83,7 +89,7 @@ const WordPractice = () => {
                 </Text>
                 {isMobile ? (
                   <Flex direction="column" align="space-around" gap="10px">
-                    {item.koreanChoice.map((choice: string[]) => {
+                    {item.koreanChoices.map((choice: string[]) => {
                       return (
                         <Button
                           width="80%"
@@ -112,7 +118,7 @@ const WordPractice = () => {
                   </Flex>
                 ) : (
                   <Flex align="space-around">
-                    {item.koreanChoice.map((choice: string[]) => {
+                    {item.koreanChoices.map((choice: string[]) => {
                       return (
                         <Button
                           width="22%"
@@ -149,28 +155,28 @@ const WordPractice = () => {
       <PagingWrapper>
         <Flex align="center" gap="4dvw">
           <Button
+            width="10dvw"
+            height="50px"
             onClick={() => {
               moveItem(curIdx - 1);
             }}
             type="border"
-            color="blue"
-            width="15dvw"
-            height="5dvh">
-            <Img src={process.env.PUBLIC_URL + "/icons/left-blue.svg"} />
+            color="blue">
+            <img src={process.env.PUBLIC_URL + "/icons/left-blue.svg"} />
           </Button>
           {curIdx < test.length - 1 ? (
             <Button
+              width="10dvw"
+              height="50px"
               onClick={() => {
                 moveItem(curIdx + 1);
               }}
               type="border"
-              color="blue"
-              width="15dvw"
-              height="5dvh">
-              <Img src={process.env.PUBLIC_URL + "/icons/right-blue.svg"} />
+              color="blue">
+              <img src={process.env.PUBLIC_URL + "/icons/right-blue.svg"} />
             </Button>
           ) : (
-            <Button width="15dvw" height="5dvh" onClick={submit}>
+            <Button width="10dvw" height="50px" onClick={submit}>
               제출하기
             </Button>
           )}

@@ -32,9 +32,10 @@ function ChangePW() {
   return (
     <Section>
       <Text color="pink" fontSize={3} smallFont={2}>
-        내 정보'^'
+        비밀번호 변경
       </Text>
       <form
+        style={{ width: "100%" }}
         onSubmit={(e) => {
           e.preventDefault();
         }}>
@@ -46,7 +47,7 @@ function ChangePW() {
               setPw(e.target.value);
             }}
             placeholder="PW"
-            width="600px"
+            width="100%"
           />
           <Input
             type="password"
@@ -55,7 +56,7 @@ function ChangePW() {
               setPwConfirm(e.target.value);
             }}
             placeholder="PW 확인"
-            width="600px"
+            width="100%"
           />
           <Input
             type="password"
@@ -64,10 +65,10 @@ function ChangePW() {
               setNewPw(e.target.value);
             }}
             placeholder="새로운 PW"
-            width="600px"
+            width="100%"
           />
           <AlignRight>
-            <Button width="100px" onClick={changePw}>
+            <Button width="100px" height="50px" onClick={changePw}>
               변경하기
             </Button>
           </AlignRight>

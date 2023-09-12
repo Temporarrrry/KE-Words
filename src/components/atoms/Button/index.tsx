@@ -13,6 +13,8 @@ type Props = {
   height?: string;
   fontSize?: number;
   smallFont?: number;
+  padding?: string;
+  smallpadding?: string;
 };
 
 const Button = ({
@@ -20,10 +22,12 @@ const Button = ({
   color = "blue",
   children,
   onClick,
-  width = "70px",
-  height = "50px",
+  width = "auto",
+  height = "auto",
   fontSize = 1,
   smallFont = 0.5,
+  padding = "0px",
+  smallpadding = "0px",
 }: Props) => {
   return (
     <Btn
@@ -32,7 +36,9 @@ const Button = ({
       width={width}
       height={height}
       fontSize={fontSize}
-      smallFont={smallFont}>
+      smallFont={smallFont}
+      padding={padding}
+      smallpadding={smallpadding}>
       {children}
     </Btn>
   );
@@ -43,14 +49,18 @@ const Btn = styled.button<{
   height: string;
   fontSize: number;
   smallFont?: number;
+  padding?: string;
+  smallpadding?: string;
 }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   vertical-align: middle;
   text-align: center;
   font-size: ${(props) => props.fontSize}rem;
+  padding: ${(props) => props.padding};
   @media screen and (max-width: 700px) {
     font-size: ${(props) => props.smallFont}rem;
+    padding: ${(props) => props.smallpadding};
   }
 `;
 

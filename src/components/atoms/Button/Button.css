@@ -13,12 +13,20 @@ button {
   color: #92a8d1;
   border: 1px solid #92a8d1;
 }
+.blue-button.transparent {
+  background-color: white;
+  color: #92a8d1;
+}
 .blue-button.bg:hover {
   background-color: white;
   color: #92a8d1;
   border: 1px solid #92a8d1;
 }
 .blue-button.border:hover {
+  background-color: #92a8d1;
+  color: white;
+}
+.blue-button.transparent:hover {
   background-color: #92a8d1;
   color: white;
 }
@@ -32,12 +40,20 @@ button {
   color: #f7cac9;
   border: 1px solid #f7cac9;
 }
+.pink-button.transparent {
+  background-color: white;
+  color: #f7cac9;
+}
 .pink-button.bg:hover {
   background-color: white;
   color: #f7cac9;
   border: 1px solid #f7cac9;
 }
 .pink-button.border:hover {
+  background-color: #f7cac9;
+  color: white;
+}
+.pink-button.transparent:hover {
   background-color: #f7cac9;
   color: white;
 }

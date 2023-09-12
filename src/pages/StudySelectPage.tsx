@@ -1,29 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../atoms/Button";
-import MainTitle from "../molecules/main/MainTitle";
+import Button from "../components/atoms/Button";
+import MainTitle from "../components/molecules/main/MainTitle";
 
-function PracticeSelectPage() {
+function StudySelectPage() {
   const navigate = useNavigate();
   const component = [
-    { link: "/practice/word", text: "단어 연습하기" },
-    { link: "/practice/sentence", text: "문장 의미 연습하기" },
-    { link: "/practice/order", text: "문장 순서 연습하기" },
-    { link: "/practice/blank", text: "문장 빈칸 연습하기" },
+    { link: "/study/word", text: "단어 공부하기" },
+    { link: "/study/sentence", text: "문장 공부하기" },
   ];
 
   return (
     <Article>
       <MainTitle />
       <Section>
-        {component.map((item, idx) => {
+        {component.map((item) => {
           return (
             <Button
-              key={`PracticeSelectBtn_${item.text}`}
+              key={`StudySelectBtn_${item.text}`}
               type="border"
-              width={`${idx === 0 ? "90%" : "25%"}`}
-              height="40%"
+              width="40%"
+              height="80%"
               fontSize={2}
               smallFont={1.5}
               onClick={() => {
@@ -37,7 +35,7 @@ function PracticeSelectPage() {
     </Article>
   );
 }
-export default PracticeSelectPage;
+export default StudySelectPage;
 
 const Article = styled.article`
   width: 80%;

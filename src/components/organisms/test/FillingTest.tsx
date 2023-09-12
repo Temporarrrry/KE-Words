@@ -4,8 +4,8 @@ type Props = {
   isPractice?: boolean;
 };
 
-const OrderingTest = (props: Props) => {
+const FillingTest = (props: Props) => {
   return <div>Comming Soon...</div>;
 };
 
-export default OrderingTest;
+export default FillingTest;

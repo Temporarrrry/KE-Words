@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import MemberApi from "../../lib/api/MemberApi";
-import Article from "../atoms/layouts/Article";
-import Text from "../atoms/Text";
-import SpaceAroundCol from "../atoms/layouts/SpaceAroundCol";
-import Input from "../atoms/Input";
-import Button from "../atoms/Button";
+import MemberApi from "../lib/api/MemberApi";
+import Article from "../components/atoms/layouts/Article";
+import Text from "../components/atoms/Text";
+import SpaceAroundCol from "../components/atoms/layouts/SpaceAroundCol";
+import Input from "../components/atoms/Input";
+import Button from "../components/atoms/Button";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ const RegisterPage = () => {
             placeholder="PW"
             width="100%"
           />
-          <Button width="100%" onClick={register}>
+          <Button width="100%" height="50px" onClick={register}>
             회원가입
           </Button>
         </SpaceAroundCol>

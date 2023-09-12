@@ -16,20 +16,23 @@ const Header = () => {
 
   const { isLoggedIn, email, setIsLoggedIn, setId, setEmail } = UserStore();
   useEffect(() => {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("KE_accessToken");
     if (!isLoggedIn && token) {
       console.log("토큰 다시 파싱");
-      let info = MemberApi.parseJwt(localStorage.getItem("accessToken")!);
+      let info = MemberApi.parseJwt(localStorage.getItem("KE_accessToken")!);
+      console.log(info);
       setId(info.userId);
       setEmail(info.userEmail);
       setIsLoggedIn(true);
+    } else {
+      console.log("토큰 없음");
     }
   }, []);
 
   const logout = () => {
     console.log("Log Out");
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("KE_accessToken");
+    localStorage.removeItem("KE_refreshToken");
     setIsLoggedIn(false);
     setId(-1);
     setEmail("");

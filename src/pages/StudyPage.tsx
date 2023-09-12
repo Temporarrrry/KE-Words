@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import UserStore from "../../stores/UserStore";
-import Flex from "../atoms/layouts/Flex";
-import Text from "../atoms/Text";
-import Button from "../atoms/Button";
-import { StudyItem } from "../../lib/Interfaces";
-import StudyApi from "../../lib/api/StudyApi";
+import UserStore from "../stores/UserStore";
+import Flex from "../components/atoms/layouts/Flex";
+import Text from "../components/atoms/Text";
+import Button from "../components/atoms/Button";
+import { StudyItem } from "../lib/Interfaces";
+import StudyApi from "../lib/api/StudyApi";
 
 type Props = {
   isWord: boolean;
@@ -19,7 +19,6 @@ function StudyPage({ isWord }: Props) {
   const [items, setItems] = useState<StudyItem[]>([]);
 
   useEffect(() => {
-    console.log(lastSentence, lastWord);
     StudyApi.getStudyItemList(isWord, Math.floor(lastWord / 20)).then((res) => {
       if (res.status === 200) {
         if (res.data.length === 0) {
@@ -68,7 +67,7 @@ function StudyPage({ isWord }: Props) {
   return (
     <Article>
       <Flex align="space-between" height="5dvh">
-        <Text color="blue">공부하기</Text>
+        <Text color="blue">공부하기-{isWord ? "단어" : "문장"}</Text>
         <Text color="blue">#{curId}</Text>
       </Flex>
       <ListWrapper>

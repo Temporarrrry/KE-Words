@@ -8,20 +8,33 @@ export interface StudyItem {
 export interface WordQuiz {
   wordId: number;
   english: string;
-  koreanChoice: string[][];
+  koreanChoices: string[][];
   originalKorean?: string[];
+  userKoreanAnswer?: string[];
 }
 
 export interface MeaningQuiz {
   sentenceId: number;
   english: string;
-  koreanChoice: string[][];
+  koreanChoices: string[][];
   originalKorean?: string[];
+  userKoreanAnswer?: string[];
 }
 
-export interface SentenceTest {
+export interface WordResult {
+  wordId: number;
+  english: string;
+  originalKorean: string[];
+  userKoreanAnswer: string[];
+  koreanChoices: string[][];
+  result: boolean;
+}
+
+export interface SentenceResult {
   sentenceId: number;
-  originalEnglish: string[];
-  blankedEnglish: string[];
-  korean: string[];
+  english: string[];
+  editedEnglishOrKoreanChoices: string[];
+  userAnswer: string[];
+  originalKorean: string;
+  result: boolean;
 }

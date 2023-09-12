@@ -12,7 +12,7 @@ instance.interceptors.request.use(
     if (instance.defaults.headers.common["Authorization"] === undefined) {
       instance.defaults.headers.common[
         "Authorization"
-      ] = `Bearer ${localStorage.getItem("accessToken")}`;
+      ] = `Bearer ${localStorage.getItem("KE_accessToken")}`;
     }
     // console.log("aToken", instance.defaults.headers.common["Authorization"]);
     console.log(config.url);
@@ -33,7 +33,7 @@ instance.interceptors.response.use(
     console.log(errorResponse.status);
 
     if (conf.url !== REFRESH_URL && errorResponse.status === 403) {
-      let rToken = localStorage.getItem("refreshToken");
+      let rToken = localStorage.getItem("KE_refreshToken");
       console.log(rToken);
       if (rToken) {
         await instance
@@ -41,8 +41,8 @@ instance.interceptors.response.use(
           .then((res) => {
             console.log(res);
             refreshed = true;
-            localStorage.setItem("refreshToken", res.data["refreshToken"]);
-            localStorage.setItem("accessToken", res.data["accessToken"]);
+            localStorage.setItem("KE_refreshToken", res.data["refreshToken"]);
+            localStorage.setItem("KE_accessToken", res.data["accessToken"]);
             instance.defaults.headers.common[
               "Authorization"
             ] = `Bearer ${res.data.accessToken}`;

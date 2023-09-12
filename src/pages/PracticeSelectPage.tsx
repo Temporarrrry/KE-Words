@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Button from "../atoms/Button";
-import MainTitle from "../molecules/main/MainTitle";
+import Button from "../components/atoms/Button";
+import MainTitle from "../components/molecules/main/MainTitle";
+import UserStore from "../stores/UserStore";
 
-function TestSelectPage() {
+function PracticeSelectPage() {
   const navigate = useNavigate();
+  const { isLoggedIn } = UserStore();
   const component = [
-    { link: "/test/word", text: "단어 시험보기" },
-    { link: "/test/sentence", text: "문장 의미 시험보기" },
-    { link: "/test/order", text: "문장 순서 시험보기" },
-    { link: "/test/blank", text: "문장 빈칸 시험보기" },
+    { link: "/practice/word", text: "단어 연습하기" },
+    { link: "/practice/sentence", text: "문장 의미 연습하기" },
+    { link: "/practice/order", text: "문장 순서 연습하기" },
+    { link: "/practice/blank", text: "문장 빈칸 연습하기" },
   ];
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <Article>
@@ -20,7 +28,7 @@ function TestSelectPage() {
         {component.map((item, idx) => {
           return (
             <Button
-              key={`TestSelectBtn_${item.text}`}
+              key={`PracticeSelectBtn_${item.text}`}
               type="border"
               width={`${idx === 0 ? "90%" : "25%"}`}
               height="40%"
@@ -37,7 +45,7 @@ function TestSelectPage() {
     </Article>
   );
 }
-export default TestSelectPage;
+export default PracticeSelectPage;
 
 const Article = styled.article`
   width: 80%;

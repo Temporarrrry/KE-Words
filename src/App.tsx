@@ -1,17 +1,20 @@
 import { BrowserRouter } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/organisms/header/Header";
-import MainPage from "./components/pages/MainPage";
-import LoginPage from "./components/pages/LoginPage";
-import RegisterPage from "./components/pages/RegisterPage";
-import InfoPage from "./components/pages/InfoPage";
-import StudySelectPage from "./components/pages/StudySelectPage";
-import StudyPage from "./components/pages/StudyPage";
-import PracticeSelectPage from "./components/pages/PracticeSelectPage";
-import PracticePage from "./components/pages/PracticePage";
-import TestSelectPage from "./components/pages/TestSelectPage";
-import WordQuizPage from "./components/pages/WordQuizPage";
-import MeaningQuizPage from "./components/pages/MeaningQuizPage";
+import MainPage from "./pages/MainPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import InfoPage from "./pages/InfoPage";
+import StudySelectPage from "./pages/StudySelectPage";
+import StudyPage from "./pages/StudyPage";
+import PracticeSelectPage from "./pages/PracticeSelectPage";
+import TestSelectPage from "./pages/TestSelectPage";
+import WordQuizPage from "./pages/WordQuizPage";
+import MeaningQuizPage from "./pages/MeaningQuizPage";
+import OrderingQuizPage from "./pages/OrderingQuizPage";
+import FillingQuizPage from "./pages/FillingQuizPage";
+import WordQuizResultPage from "./pages/WordQuizResultPage";
+import SentenceQuizResultPage from "./pages/SentenceQuizResultPage";
 
 function App() {
   return (
@@ -19,7 +22,7 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/KE-Words_Front" element={<MainPage />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/info" element={<InfoPage />} />
@@ -38,13 +41,36 @@ function App() {
             path="/practice/sentence"
             element={<MeaningQuizPage isPractice={true} />}
           />
-          <Route path="/practice/order" element={<PracticePage type={2} />} />
-          <Route path="/practice/blank" element={<PracticePage type={3} />} />
+          <Route
+            path="/practice/order"
+            element={<OrderingQuizPage isPractice={true} />}
+          />
+          <Route
+            path="/practice/blank"
+            element={<FillingQuizPage isPractice={true} />}
+          />
           <Route path="/test/select" element={<TestSelectPage />} />
-          <Route path="/test/word" element={<InfoPage />} />
-          <Route path="/test/sentence" element={<InfoPage />} />
-          <Route path="/test/order" element={<InfoPage />} />
-          <Route path="/test/blank" element={<InfoPage />} />
+          <Route
+            path="/test/word"
+            element={<WordQuizPage isPractice={false} />}
+          />
+          <Route
+            path="/test/sentence"
+            element={<MeaningQuizPage isPractice={false} />}
+          />
+          <Route
+            path="/test/order"
+            element={<OrderingQuizPage isPractice={false} />}
+          />
+          <Route
+            path="/test/blank"
+            element={<FillingQuizPage isPractice={false} />}
+          />
+          <Route path="/quiz/word/:id" element={<WordQuizResultPage />} />
+          <Route
+            path="/quiz/sentence/:id"
+            element={<SentenceQuizResultPage />}
+          />
         </Routes>
       </main>
     </BrowserRouter>

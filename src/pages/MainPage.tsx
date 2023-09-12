@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../atoms/Button";
-import MainTitle from "../molecules/main/MainTitle";
+import Button from "../components/atoms/Button";
+import MainTitle from "../components/molecules/main/MainTitle";
 
 const MainPage = () => {
   const navigate = useNavigate();

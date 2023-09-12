@@ -1,15 +1,15 @@
 import instance from "./Instance";
 
 export default {
-  getStudyItem: async (isWord: boolean = true, id: number) => {
+  getStudyItem: async (isWord: boolean, id: number) => {
     return await instance
-      .get(`/${isWord ? "word" : "sentence"}/id`)
+      .get(`/${isWord ? "word" : "sentence"}/${id}`)
       .catch((e) => {
         console.log("getWord", e.response);
         return e.response;
       });
   },
-  getStudyItemList: async (isWord: boolean = true, page: number) => {
+  getStudyItemList: async (isWord: boolean, page: number) => {
     return await instance
       .get(`/${isWord ? "word" : "sentence"}?page=${page}&size=20`)
       .catch((e) => {
@@ -17,7 +17,7 @@ export default {
         return e.response;
       });
   },
-  addBookmark: async (isWord: boolean = true, id: number) => {
+  addBookmark: async (isWord: boolean, id: number) => {
     return await instance
       .post(
         `/bookmark/${isWord ? "word" : "sentence"}/save`,
@@ -28,7 +28,7 @@ export default {
         return e.response;
       });
   },
-  deleteBookmark: async (isWord: boolean = true, id: number) => {
+  deleteBookmark: async (isWord: boolean, id: number) => {
     return await instance
       .post(
         `/bookmark/${isWord ? "word" : "sentence"}/delete`,

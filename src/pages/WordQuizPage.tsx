@@ -1,6 +1,6 @@
 import React from "react";
-import WordPractice from "../organisms/practice/WordPractice";
-import WordTest from "../organisms/test/WordTest";
+import WordPractice from "../components/organisms/practice/WordPractice";
+import WordTest from "../components/organisms/test/WordTest";
 
 type Props = {
   isPractice: boolean;

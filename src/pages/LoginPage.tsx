@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import UserStore from "../../stores/UserStore";
+import UserStore from "../stores/UserStore";
 import { useNavigate } from "react-router-dom";
-import MemberApi from "../../lib/api/MemberApi";
-import Article from "../atoms/layouts/Article";
-import Text from "../atoms/Text";
-import SpaceAroundCol from "../atoms/layouts/SpaceAroundCol";
-import Input from "../atoms/Input";
-import Button from "../atoms/Button";
-import Modal from "../atoms/layouts/Modal";
+import MemberApi from "../lib/api/MemberApi";
+import Article from "../components/atoms/layouts/Article";
+import Text from "../components/atoms/Text";
+import SpaceAroundCol from "../components/atoms/layouts/SpaceAroundCol";
+import Input from "../components/atoms/Input";
+import Button from "../components/atoms/Button";
+import Modal from "../components/atoms/layouts/Modal";
 
 const LoginPage = () => {
   const {
@@ -33,8 +33,8 @@ const LoginPage = () => {
         setId(res.data.id);
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
-        localStorage.setItem("accessToken", res.data["accessToken"]);
-        localStorage.setItem("refreshToken", res.data["refreshToken"]);
+        localStorage.setItem("KE_accessToken", res.data["accessToken"]);
+        localStorage.setItem("KE_refreshToken", res.data["refreshToken"]);
         callback();
       } else {
         setIsModalOpened(true);
@@ -78,7 +78,7 @@ const LoginPage = () => {
             placeholder="PW"
             width="100%"
           />
-          <Button width="100%" onClick={login}>
+          <Button width="100%" height="50px" onClick={login}>
             로그인
           </Button>
         </SpaceAroundCol>
