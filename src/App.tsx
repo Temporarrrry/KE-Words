@@ -19,7 +19,7 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/KE-Words_Front" element={<MainPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/info" element={<InfoPage />} />
