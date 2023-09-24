@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://43.201.192.197:8080/api",
+  baseURL: "https://ke-words.kro.kr/api/",
   timeout: 3000,
 });
 
 let refreshed = false;
-const REFRESH_URL = "http://43.201.192.197:8080/api/token/relssue";
+const REFRESH_URL = "https://ke-words.kro.kr/api/token/relssue";
 instance.interceptors.request.use(
   function (config) {
     if (instance.defaults.headers.common["Authorization"] === undefined) {
